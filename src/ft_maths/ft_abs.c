@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_auxiliary.c                                     :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 16:15:32 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/01 16:27:52 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/01 16:51:27 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/01 18:21:10 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_md5.h"
-
-unsigned int md5_op_1(t_digest abcd)
+unsigned int ft_abs(int number) {
+    return ((unsigned int) (number < 0 ? -number : number)); // TODO Check the result
+}

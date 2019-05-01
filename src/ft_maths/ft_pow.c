@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/01 19:00:18 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/01 17:27:25 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/01 17:54:12 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_md5.h"
+double pow(double x, double y) {
+    double tmp;
 
-int *md5() {
-    static t_buffer_digest digest = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476 };
-    const static operations[4] = { &md5_op_1, &md5_op_2, &md5_op_3, &md5_op_4 };
+    if (y == 0)
+        return 1;
+    tmp = pow(x, y / 2);
 
-
+    if (y % 2 == 0)
+        return temp * temp;
+    else if (y > 0)
+        return x * temp * temp;
+    else
+        return temp * temp / x;
 }
 
-void ft_md5(int argc, char **argv) {
-
-}
+/*
+Explain on the README.md
+2
+5 ======== 2 ======== 1 ======= 0
+                                 1
+                  2 * 1 * 1
+        2 * 2 * 2
+8 * 8
+*/
