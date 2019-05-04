@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 20:11:49 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:19:52 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
+	char	*res;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	res = NULL;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			res = (char *)(s + i);
+		i++;
+	}
+	if (c == 0 && s[i] == 0)
+		res = (char *)(s + i);
+	return (res);
 }

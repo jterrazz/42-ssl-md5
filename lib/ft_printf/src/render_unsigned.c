@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   render_unsigned.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/05/15 17:19:23 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/06/04 10:52:42 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "ft_printf.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*render_unsigned(va_list *va, t_flags *flags)
+{
+	uintmax_t	n;
+	char		*ret;
 
-void ft_md5(int argc, char **argv) {
-
+	n = get_uintmax(va, flags);
+	if (!(ret = p_ft_uitoa_base(n, 10, 'a')))
+		return (NULL);
+	set_precision_number(&ret, flags, (n ? 0 : 1));
+	return (ret);
 }

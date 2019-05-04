@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/11 20:23:58 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:32:09 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		i;
+	char	*new_s;
 
-void ft_md5(int argc, char **argv) {
-
+	new_s = ft_strnew(ft_strlen(s));
+	if (new_s == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		new_s[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (new_s);
 }

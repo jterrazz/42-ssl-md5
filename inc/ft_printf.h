@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/05/10 16:57:02 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/02 19:11:24 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+int				ft_printf(const char *restrict format, ...);
 
-void ft_md5(int argc, char **argv) {
-
-}
+#endif

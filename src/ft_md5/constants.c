@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   integer_sines.c                                    :+:      :+:    :+:   */
+/*   constants.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 18:30:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/01 18:43:36 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/04 17:12:00 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // TODO Check global variables are allowed
 // Put in .h
-const unsigned int      g_integer_sines[65] = {
-	0,
+// Put explained algo in the README.md
+// Why do we use each of these numbers (why these in particular)
+
+const unsigned int		g_bits_shift_amount[64] = {
+	7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,
+	5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,
+	4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,
+	6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21
+};
+
+const unsigned int      g_computed_sines[64] = {
 	0xd76aa478,
 	0xe8c7b756,
 	0x242070db,

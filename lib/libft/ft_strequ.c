@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.h                                           :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jterrazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:41:04 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 19:01:48 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/13 13:20:31 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:33:04 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MD5_H
-# define FT_MD5_H
+#include "libft.h"
 
-# include <stdlib.h>
+int		ft_strequ(char const *s1, char const *s2)
+{
+	int i;
 
-void ft_md5(int argc, char **argv);
-char *md5(const char *msg, size_t msg_len);
-
-#endif
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	if (!s1[i] && !s2[i])
+		return (1);
+	return (0);
+}

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 15:10:06 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/02 23:50:41 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "ft_printf.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+void	*p_ft_memset(void *b, int c, size_t len)
+{
+	size_t			i;
+	unsigned char	*str;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	str = (unsigned char *)b;
+	while (i < len)
+	{
+		str[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }

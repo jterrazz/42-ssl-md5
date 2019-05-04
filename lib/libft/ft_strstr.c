@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 20:18:43 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:22:13 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*ft_strstr(const char *big, const char *little)
+{
+	int i;
+	int j;
+	int size;
 
-void ft_md5(int argc, char **argv) {
-
+	size = 0;
+	while (little[size] != '\0')
+		size++;
+	if (size == 0)
+		return ((char *)big);
+	i = 0;
+	while (big[i] != '\0')
+	{
+		j = 0;
+		while (big[i + j] == little[j])
+		{
+			if (little[j + 1] == '\0')
+				return ((char *)(big + i));
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

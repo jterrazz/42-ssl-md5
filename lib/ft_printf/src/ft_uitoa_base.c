@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/05/22 16:50:44 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/02 23:51:25 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "ft_printf.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*p_ft_uitoa_base(uintmax_t nb, intmax_t base, char letter)
+{
+	uintmax_t	temp;
+	int			power;
+	char		*str;
 
-void ft_md5(int argc, char **argv) {
-
+	temp = nb;
+	power = 1;
+	while (temp /= base)
+		power++;
+	if (!(str = p_ft_strnew(power)))
+		return (NULL);
+	while (power--)
+	{
+		if (nb % base >= 10)
+			str[power] = nb % base - 10 + letter;
+		else
+			str[power] = nb % base + '0';
+		nb /= base;
+	}
+	return (str);
 }

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 16:48:25 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 16:12:28 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char			*dst_str;
+	char			*src_str;
 
-void ft_md5(int argc, char **argv) {
-
+	dst_str = (char *)dst;
+	src_str = (char *)src;
+	if (dst == src)
+		return (dst);
+	while (n--)
+		*dst_str++ = *src_str++;
+	return (dst);
 }

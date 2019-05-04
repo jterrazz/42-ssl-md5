@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_auxiliary.c                                     :+:      :+:    :+:   */
+/*   ops_bits.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 16:15:32 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/01 16:50:09 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/04 18:45:41 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_md5.h"
+#include "./md5.h"
 
-unsigned int md5_op_1(t_buffer_digest digest[]) {
-    return ((digest[1] & digest[2]) | (~digest[1] & digest[3]));
+unsigned int md5_op_shift_1(unsigned int buffers[]) {
+    return ((buffers[1] & buffers[2]) | (~buffers[1] & buffers[3]));
 }
 
-unsigned int md5_op_2(t_buffer_digest digest[]) {
-    return ((digest[1] & digest[3]) | (digest[2] & ~digest[3]));
+unsigned int md5_op_shift_2(unsigned int buffers[]) {
+    return ((buffers[1] & buffers[3]) | (buffers[2] & ~buffers[3]));
 }
 
-unsigned int md5_op_3(t_buffer_digest digest[]) {
-    return (digest[1] ^ digest[2] ^ digest[3]);
+unsigned int md5_op_shift_3(unsigned int buffers[]) {
+    return (buffers[1] ^ buffers[2] ^ buffers[3]);
 }
 
-unsigned int md5_op_4(t_buffer_digest digest[]) {
-    return (digest[2] ^ (digest[1] | ~digest[3]));
+unsigned int md5_op_shift_4(unsigned int buffers[]) {
+    return (buffers[2] ^ (buffers[1] | ~buffers[3]));
 }

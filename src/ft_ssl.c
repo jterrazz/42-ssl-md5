@@ -6,11 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/01 16:36:04 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/04 18:08:05 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ssl.h"
+#include "ft_ssl.h" // TODO Remove and delete .h if not used
 
 // TODO Adapt and add printf with libft
 

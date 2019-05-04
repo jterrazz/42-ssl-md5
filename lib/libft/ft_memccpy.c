@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 17:18:07 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:05:55 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	unsigned char	*dst_str;
+	unsigned char	*src_str;
+	unsigned char	c_char;
+	size_t			i;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	c_char = (unsigned char)c;
+	dst_str = (unsigned char *)dst;
+	src_str = (unsigned char *)src;
+	while (i < n)
+	{
+		dst_str[i] = src_str[i];
+		if (src_str[i] == c_char)
+			return (&dst_str[i + 1]);
+		i++;
+	}
+	return (NULL);
 }

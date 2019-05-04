@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 19:30:19 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:07:24 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*s1_c;
+	unsigned char	*s2_c;
+	size_t			i;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	s1_c = (unsigned char *)s1;
+	s2_c = (unsigned char *)s2;
+	while (i < n && s1_c[i] == s2_c[i])
+		i++;
+	if (i == n)
+		return (0);
+	return (s1_c[i] - s2_c[i]);
 }

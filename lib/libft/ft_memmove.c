@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/10 18:26:16 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 16:23:07 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char			*dst_str;
+	char			*src_str;
+	size_t			i;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	dst_str = (char *)dst;
+	src_str = (char *)src;
+	if (dst == src)
+		return (dst);
+	if (dst_str < src_str)
+		ft_memcpy(dst_str, src_str, len);
+	else
+	{
+		while (len--)
+			dst_str[len] = src_str[len];
+	}
+	return (dst);
 }

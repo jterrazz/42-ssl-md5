@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ops_g.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/04 17:35:31 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/04 18:45:45 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+int md5_op_g_1(int i) {
+    return i;
+}
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+int md5_op_g_2(int i) {
+    return (5 * i + 1) % 16;
+}
 
-void ft_md5(int argc, char **argv) {
+int md5_op_g_3(int i) {
+    return (3*i + 5) % 16;
+}
 
+int md5_op_g_4(int i) {
+    return (7*i) % 16;
 }

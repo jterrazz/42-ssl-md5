@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/12 12:08:25 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:38:08 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char			*new_s;
+	unsigned int	i;
+	unsigned int	j;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	j = 0;
+	new_s = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (new_s == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		new_s[j] = s1[i];
+		i++;
+		j++;
+	}
+	i = 0;
+	while (s2[i])
+	{
+		new_s[j] = s2[i];
+		i++;
+		j++;
+	}
+	return (new_s);
 }

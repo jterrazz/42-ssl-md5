@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 17:58:11 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/04/11 20:38:18 by jterrazz          #+#    #+#             */
+/*   Updated: 2017/04/16 15:35:32 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_md5/md5.h"
+#include "libft.h"
 
-// TODO Install atom in command line
-// TODO Learn go and use it in tests
-// TODO Clean atom packages
-// TODO Adapt libs to use in projects
-// TODO At the end, use latest version of my libs github
-// TODO Explain in README.md the process with our algo
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char			*new_s;
+	unsigned int	i;
 
-void ft_md5(int argc, char **argv) {
-
+	i = 0;
+	new_s = ft_strnew(len);
+	if (new_s == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		new_s[i] = s[start];
+		i++;
+		start++;
+	}
+	return (new_s);
 }
