@@ -6,13 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/05 00:47:17 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/05 15:13:31 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MD5_H
 # define MD5_H
 
+# define CHUNK_COUNT(msg_len) (1 + (msg_len + 8) / CHUNK_SIZE ) // TODO Use modulo ???
 # define CHUNK_SIZE 64
 # define HASH_SIZE 32 // 128 / 8 = 16 bytes represented with 32 hexadecimal letters
 
@@ -43,8 +44,8 @@ char *md5(const char *msg, size_t msg_len);
 ** Internal functions
 */
 
-void add_buffers(t_buffer_group dst, t_buffer_group src, int length);
-void copy_buffers(t_buffer_group dst, t_buffer_group src, int length);
+void add_buffers(t_buffer_group dst, const t_buffer_group src, int length);
+void copy_buffers(t_buffer_group dst, const t_buffer_group src, int length);
 
 /*
 ** Operations
@@ -66,5 +67,5 @@ int md5_op_g_4(int i);
 
 extern const unsigned int g_bits_shift_amount[64];
 extern const unsigned int g_computed_sines[64];
-
+extern const t_buffer_group	default_buffers;
 #endif
