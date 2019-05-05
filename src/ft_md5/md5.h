@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 19:01:44 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/05 00:47:17 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MD5_H
 
 # define CHUNK_SIZE 64
-# define HASH_SIZE 128
+# define HASH_SIZE 32 // 128 / 8 = 16 bytes represented with 32 hexadecimal letters
 
 // TODO REplace types by stdint.h ???
 
@@ -43,7 +43,7 @@ char *md5(const char *msg, size_t msg_len);
 ** Internal functions
 */
 
-void add_buffer_values(t_buffer_group dst, t_buffer_group src, int length);
+void add_buffers(t_buffer_group dst, t_buffer_group src, int length);
 void copy_buffers(t_buffer_group dst, t_buffer_group src, int length);
 
 /*
