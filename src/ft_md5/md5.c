@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:55:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/05 15:34:06 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/07 18:55:53 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 // Append 1 bit to the message + length so its 4 bits (int) + 4 bits (int)
 // Test and compare with length from 0 to 512 + try sending empty files
 
+// TODO Use only 1 shared
 static unsigned char *init_msg_buffer(const char *msg, size_t msg_len) {
     int cursor;
     int chunk_number;
     unsigned char *msg_buffer;
-    t_int_buffer final_length_buffer;
+    t_i_buffer final_length_buffer;
 
     cursor = 0;
     chunk_number = CHUNK_COUNT(msg_len);
@@ -46,7 +47,7 @@ static unsigned char *init_msg_buffer(const char *msg, size_t msg_len) {
     return msg_buffer;
 }
 
-static void run_md5_byte_ops(int i, t_chunk_buffer chunk, t_buffer_group tmp_buffers) {
+static void run_md5_byte_ops(int i, t_16i_buffer chunk, t_4i_buffer tmp_buffers) {
     static t_bits_ops ft_f[4] = { &md5_op_shift_1, &md5_op_shift_2, &md5_op_shift_3, &md5_op_shift_4 };
     static t_g_ops ft_g[4] = { &md5_op_g_1, &md5_op_g_2, &md5_op_g_3, &md5_op_g_4 };
 
@@ -63,17 +64,17 @@ static void run_md5_byte_ops(int i, t_chunk_buffer chunk, t_buffer_group tmp_buf
     tmp_buffers[1] = tmp_buffers[1] + ft_rotate_bits_left(f_result, g_bits_shift_amount[i]);
 }
 
-static void run_md5_operations(unsigned char *msg_buffer, size_t msg_len, t_buffer_group buffers) {
+static void run_md5_operations(unsigned char *msg_buffer, size_t msg_len, t_4i_buffer buffers) {
     // Now we will process each chunk of 512 bits
-    int chunk_i;
+    size_t chunk_i;
     int chunk_cursor;
-    t_chunk_buffer chunk;
-    t_buffer_group tmp_buffers; // MD5 uses a buffer that is made up of four words that are each 32 bits long => 4 bytes => int
+    t_16i_buffer chunk;
+    t_4i_buffer tmp_buffers; // MD5 uses a buffer that is made up of four words that are each 32 bits long => 4 bytes => int
 
     chunk_i = 0;
     chunk_cursor = 0;
 
-    copy_buffers(buffers, default_buffers, 4);
+    copy_buffers(buffers, default_md5_buffers, 4);
 
     while (chunk_i < CHUNK_COUNT(msg_len)) {
         ft_memcpy(chunk.c, msg_buffer + chunk_i * CHUNK_SIZE, CHUNK_SIZE);
@@ -87,36 +88,9 @@ static void run_md5_operations(unsigned char *msg_buffer, size_t msg_len, t_buff
     }
 }
 
-static char *build_md5_hash(t_buffer_group buffers) {
-    char *hash;
-    t_int_buffer int_buffer;
-    int j;
-    int i;
-    char *hash_part;
-
-    if (!(hash = ft_strnew(HASH_SIZE + 2)))
-        return (NULL);
-
-    ft_strncpy(hash, "0x", 2);
-    i = 0;
-    while (i < 4) {
-        int_buffer.i = buffers[i];
-        j = 0;
-        while (j < 4) {
-            if (!(hash_part = ft_uitoa_base_len(int_buffer.c[j], 16, 'a', 2)))
-                return (NULL);
-            ft_strncpy(hash + 2 + j * 2 + (i * (HASH_SIZE / 4)), hash_part, HASH_SIZE / 4); // j * 2 = because we print 2 caracters per byte ; + 2 because of 0x; (i * (HASH_SIZE / 4)) for each buffer
-            free(hash_part);
-            j++;
-        }
-        i++;
-    }
-    return hash;
-}
-
 char *md5(const char *msg, size_t msg_len) {
     unsigned char *msg_buffer;
-    t_buffer_group buffers;
+    t_4i_buffer buffers;
 
     if (!(msg_buffer = init_msg_buffer(msg, msg_len)))
         return NULL;
@@ -124,7 +98,7 @@ char *md5(const char *msg, size_t msg_len) {
     run_md5_operations(msg_buffer, msg_len, buffers);
     free(msg_buffer);
 
-    return (build_md5_hash(buffers));
+    return (build_hash(buffers, 4, 128)); // 128 / 8 = 16 bytes represented with 32 hexadecimal letters
 }
 
 // TODO Check what upper of lower case to use

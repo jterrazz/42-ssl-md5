@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 18:30:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/05 15:11:33 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/06 13:31:30 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "./md5.h"
 
-const t_buffer_group	default_buffers = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476 }; // Better placement
+const t_8i_buffer	default_md5_buffers = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476 }; // Better placement
 
 const unsigned int		g_bits_shift_amount[64] = {
 	7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,

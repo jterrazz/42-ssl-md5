@@ -6,9 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:35:31 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 18:45:45 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/07 18:45:34 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// TODO Tranform all to unsigned
 
 int md5_op_g_1(int i) {
     return i;

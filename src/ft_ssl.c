@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/04 22:08:15 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:18:18 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int main(int argc, char **argv) {
 
 	if (!ft_strncmp(argv[1], "md5", 3))
 		ft_md5(argc, argv);
+	else if (!ft_strncmp(argv[1], "sha256", 6))
+		ft_sha256(argc, argv);
 	else {
 		ft_printf("ft_ssl: Error: 'foobar' is an invalid command\n\n");
 		ft_printf("Standard commands:\n\n");

@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/05 13:18:27 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/07 18:47:38 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,32 @@
 
 # include <stdlib.h>
 
-char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter);
+typedef union			u_i_buffer {
+	unsigned int	i;
+	unsigned char	c[4];
+}						t_i_buffer;
+
+typedef unsigned int	t_8i_buffer[8]; // TODO Transofrm in both projects to union values // Remove in ft_sha256 too
+
+typedef union			u_16i_buffer {
+	unsigned int	i[16];
+	unsigned char	c[64];
+}						t_16i_buffer;
+
+typedef union			u_64i_buffer {
+	unsigned int	i[64];
+	unsigned char	c[256];
+}						t_64i_buffer;
+
+void add_buffers(unsigned int *dst, const unsigned int *src, int length);
+void copy_buffers(unsigned int *dst, const unsigned int *src, int length);
+
 unsigned int ft_rotate_bits_left(unsigned int x, char rotations);
+unsigned int ft_rotate_bits_right(unsigned int x, char rotations);
+
+char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter);
 char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter, size_t len);
+
+char *build_hash(t_8i_buffer buffers, size_t buffer_count, size_t hash_size);
 
 #endif
