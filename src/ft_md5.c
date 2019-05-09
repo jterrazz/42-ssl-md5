@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:12:56 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/07 18:51:26 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/08 19:26:22 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@
 void ft_md5(int argc, char **argv) {
 	char *test = md5("s", 1);
 	ft_printf("MD5: %s\n", test);
+	ft_printf("MD5: 0x03c7c0ace395d80182db07ae2c30f034\n");
 }

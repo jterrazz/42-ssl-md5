@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:55:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/07 18:55:53 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:29:30 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@
 // Test and compare with length from 0 to 512 + try sending empty files
 
 // TODO Use only 1 shared
+// REname to padded buffer
 static unsigned char *init_msg_buffer(const char *msg, size_t msg_len) {
     int cursor;
     int chunk_number;
     unsigned char *msg_buffer;
-    t_i_buffer final_length_buffer;
+    t_l_buffer final_length_buffer;
 
     cursor = 0;
     chunk_number = CHUNK_COUNT(msg_len);
@@ -41,8 +42,10 @@ static unsigned char *init_msg_buffer(const char *msg, size_t msg_len) {
     while (cursor < chunk_number * CHUNK_SIZE) // TODO Transform to a cursor
         msg_buffer[cursor++] = 0;
     cursor -= 8; // Because we add '0' with => bits ≡ 448 (mod 512)
-    final_length_buffer.i = 8 * msg_len; // Because it was set to 0, the size is % 2^64 ?????
-    ft_memcpy(msg_buffer + cursor, final_length_buffer.c, 4);
+    final_length_buffer.l = 8 * msg_len; // Because it was set to 0, the size is % 2^64 ????? // Is it really that ?
+    ft_memcpy(msg_buffer + cursor, final_length_buffer.c, 8);
+    // long *test = (long *)msg_buffer;
+    // test[cursor] = 8 * msg_len;
 
     return msg_buffer;
 }
@@ -98,7 +101,7 @@ char *md5(const char *msg, size_t msg_len) {
     run_md5_operations(msg_buffer, msg_len, buffers);
     free(msg_buffer);
 
-    return (build_hash(buffers, 4, 128)); // 128 / 8 = 16 bytes represented with 32 hexadecimal letters
+    return (build_hash(buffers, 4, 1)); // 128 / 8 = 16 bytes represented with 32 hexadecimal letters
 }
 
 // TODO Check what upper of lower case to use

@@ -6,12 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 16:50:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/05 13:27:20 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:25:07 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdlib.h>
 # include "libft.h"
+#include "ft_printf.h"// TODO Delete
 
 char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter)
 {
@@ -36,10 +37,13 @@ char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter)
 	return (str);
 }
 
-char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter, size_t len) {
+char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter, int len) {
 	char *str = ft_uitoa_base(nb, base, letter);
-	size_t i = 0;
-	size_t diff = len - ft_strlen(str);
+	int i = 0;
+	int diff = len - ft_strlen(str);
+	// ft_printf("len %d\n", len);
+	// ft_printf("strlen %d\n", ft_strlen(str));
+
 	if (diff > 0) {
 		char *new_str = ft_strnew(len);
 		if (!new_str)

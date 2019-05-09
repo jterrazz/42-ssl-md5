@@ -6,10 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:24:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/07 13:26:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/08 19:54:09 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Check constants are allowed
 // (first 32 bits of the fractional parts of the square roots of the first 8 primes 2..19):
 const unsigned int g_k[64] = { // Add sha256 prefix wverywhere and rename all constants
 	0x428a2f98,	0x71374491,	0xb5c0fbcf,	0xe9b5dba5,	0x3956c25b,	0x59f111f1,	0x923f82a4,	0xab1c5ed5,
