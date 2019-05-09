@@ -6,14 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/07 13:25:17 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:33:38 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA256_H
 #define SHA256_H
 
-#include "../utils/utils.h"
+#include "../common/common.h"
 
 typedef unsigned int	t_8i_buffer[8]; // TODO Transofrm in both projects to union values
 

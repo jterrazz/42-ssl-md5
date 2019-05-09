@@ -6,20 +6,25 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 18:30:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/06 13:31:30 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/09 18:26:25 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO Check global variables are allowed
+// TODO Check global variables are allowed or useful
 // Put in .h
 // Put explained algo in the README.md
 // Why do we use each of these numbers (why these in particular)
 
 #include "./md5.h"
 
-const t_8i_buffer	default_md5_buffers = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476 }; // Better placement
+const t_8i_buffer		g_md5_default_buffers = {
+	0x67452301,
+	0xEFCDAB89,
+	0x98BADCFE,
+	0x10325476
+};
 
-const unsigned int		g_bits_shift_amount[64] = {
+const unsigned int		g_md5_shifts[64] = {
 	7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,
 	5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,
 	4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,

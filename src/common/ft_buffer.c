@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffers.c                                          :+:      :+:    :+:   */
+/*   ft_buffer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:27:48 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/08 21:58:08 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/09 17:45:13 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./utils.h"
+#include "./common.h"
 
-// TODO Use size_t ?
-void add_buffers(unsigned int *dst, const unsigned int *src, int length) {
-    int i = 0;
+void ft_buffer_assign_add(unsigned int *dst, const unsigned int *src, size_t length) {
+    size_t i = 0;
 
     while (i < length){
         dst[i] += src[i];
@@ -22,8 +21,8 @@ void add_buffers(unsigned int *dst, const unsigned int *src, int length) {
     }
 }
 
-void copy_buffers(unsigned int *dst, const unsigned int *src, int length) {
-    int i = 0;
+void ft_buffer_copy(unsigned int *dst, const unsigned int *src, size_t length) {
+    size_t i = 0;
 
     while (i < length) {
         dst[i] = src[i];
