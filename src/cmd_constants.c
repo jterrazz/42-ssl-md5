@@ -1,11 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatch_flags.c                                   :+:      :+:    :+:   */
+/*   cmd_constants.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/10 15:48:07 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/10 13:04:15 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/10 17:57:00 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "./cmd.h"
+#include "./ft_md5/md5.h"
+#include "./ft_sha256/sha256.h"
+
+const t_cmd g_cmds[] = {
+	{ "md5", "MD5", &md5 },
+	{ "sha256", "SHA256", &sha256 },
+	{ 0, 0, 0 }
+};
+
+const t_flag g_common_flags[] = {
+	{ "p", NULL, 0 },
+	{ "q", NULL, 0 },
+	{ "r", NULL, 0 },
+	{ "s", &flag_s_handler, 1 },
+	{ 0, 0, 0 }
+};
