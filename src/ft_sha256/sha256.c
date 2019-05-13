@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/10 13:15:50 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/13 17:36:10 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@
 //(512 - ((m.length + 1 + 64) % 512))
 
 // Convert all t_64i_buffer to ***t_64i_buffer
-
+#include "stdio.h" // del
 static void init_w_array(t_64i_buffer *w_array, unsigned char *msg_buffer) {
     int i;
     int j;
 
+    // General ft uint32_t swap_uint32(uint32_t val)
     for (i = 0, j = 0; i < 16; ++i, j += 4)
 		w_array->i[i] = (msg_buffer[j] << 24) | (msg_buffer[j + 1] << 16) | (msg_buffer[j + 2] << 8) | (msg_buffer[j + 3]);
     i = 16;

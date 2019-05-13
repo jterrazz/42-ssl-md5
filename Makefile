@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/05/04 22:30:32 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/05/13 15:36:55 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ $(NAME): # $(OBJECTS)
 	@echo "Make ft_printf \033[33mok\033[0m"
 	@make -s -C lib/libft
 	@echo "Make libft \033[33mok\033[0m"
-	$(CC) $(FLAGS_CC) -I inc $(PATH_LIBFT) $(PATH_PRINTF) $(SOURCES)
+	$(CC) $(FLAGS_CC) -I inc $(PATH_LIBFT) $(PATH_PRINTF) $(SOURCES) lib/get_next_line/*.c
 	@echo "Compilation successful"
 
 # $(PATH_OBJ)/%.o: $(PATH_SRC)/%.c

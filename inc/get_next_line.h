@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_constants.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/10 13:04:15 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/10 18:40:09 by jterrazz         ###   ########.fr       */
+/*   Created: 2017/05/07 21:32:22 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/13 17:47:36 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./cmd.h"
-#include "./ft_md5/md5.h"
-#include "./ft_sha256/sha256.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+// TODO Remove
 
-const t_cmd g_cmds[] = {
-	{ "md5", "MD5", &md5 },
-	{ "sha256", "SHA256", &sha256 },
-	{ 0, 0, 0 }
-};
+# define BUFF_SIZE 3
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft.h"
 
-const t_flag g_common_flags[] = {
-	{ "-p", NULL, 0 },
-	{ "-q", NULL, 0 },
-	{ "-r", NULL, 0 },
-	{ "-s", &flag_s_handler, 1 },
-	{ 0, 0, 0 }
-};
+typedef struct	s_buff
+{
+	int		buff_size;
+	char	buff[BUFF_SIZE];
+}				t_buff;
+
+typedef struct	s_list_fd
+{
+	int					fd;
+	struct s_buff		*buff;
+	struct s_list_fd	*next;
+}				t_list_fd;
+
+int				get_next_line(const int fd, char **line);
+
+#endif
