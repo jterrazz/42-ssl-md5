@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:39:14 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/15 14:59:14 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:36:09 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static bool build_hash_big_endian(t_8i_buffer buffers, size_t buffer_i,
 static bool build_hash_little_endian(t_8i_buffer buffers, size_t buffer_i,
                                      char *hash)
 {
-	char		* hash_tmp;
+	char		*hash_tmp;
 	t_i_buffer	int_buffer;
 	int		i;
 
@@ -54,7 +54,7 @@ static bool build_hash_little_endian(t_8i_buffer buffers, size_t buffer_i,
 char *build_hash(t_8i_buffer buffers, size_t buffer_count,
                  bool is_little_endian)
 {
-	char	* hash;
+	char	*hash;
 	size_t	buffer_i;
 
 	buffer_i = 0;
