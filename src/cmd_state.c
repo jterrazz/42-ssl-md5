@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/10 18:49:06 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:34:19 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 // TODO Find a way to make this automatically
 // Replace all EXIT_SUCCESS by numbers
 
-int flag_s_handler(t_cmd_state *state, int argc, char **argv, int argc_i) {
+int flag_s_handler(t_cmd_state *state, int argc, char **argv, int argc_i)
+{
 	if (argc_i + 1 >= argc)
 		return (EXIT_FAILURE);
 	// TODO Secure malloc and realloc
@@ -34,7 +35,8 @@ int flag_s_handler(t_cmd_state *state, int argc, char **argv, int argc_i) {
 // md5: illegal option -- j
 // usage: md5 [-pqrtx] [-s string] [files ...]
 
-static void activate_flag(t_cmd_state *state, char *flag) {
+static void activate_flag(t_cmd_state *state, char *flag)
+{
 	if (!ft_strcmp(flag, "-p")) {
 		state->p = TRUE;
 	} else if (!ft_strcmp(flag, "-q")) {
@@ -47,7 +49,8 @@ static void activate_flag(t_cmd_state *state, char *flag) {
 }
 
 // TODO Set message for all errors
-static int analyse_arg(t_cmd_state *state, int argc, char **argv, int argc_i) {
+static int analyse_arg(t_cmd_state *state, int argc, char **argv, int argc_i)
+{
 	int i;
 
 	i = 0;
@@ -56,7 +59,9 @@ static int analyse_arg(t_cmd_state *state, int argc, char **argv, int argc_i) {
 			activate_flag(state, argv[argc_i]);
 
 			if (g_common_flags[i].arg_count > argc - argc_i ||
-				(g_common_flags[i].handler && g_common_flags[i].handler(state, argc, argv, argc_i)))
+			    (g_common_flags[i].handler &&
+			     g_common_flags[i].handler(state, argc, argv,
+			                               argc_i)))
 				return (-1);
 
 			return (g_common_flags[i].arg_count);
@@ -71,7 +76,8 @@ static int analyse_arg(t_cmd_state *state, int argc, char **argv, int argc_i) {
 }
 
 // TODO Do global error handling and in .go file test for all error cases
-int set_cmd_state(t_cmd_state *state, int argc, char **argv) {
+int set_cmd_state(t_cmd_state *state, int argc, char **argv)
+{
 	int i;
 	int ret;
 
