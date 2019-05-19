@@ -15,7 +15,7 @@
 
 #define CMD_BUFF_SIZE 1000
 
-#include "./common/common.h"
+#include "./shared/shared.h"
 #include "./ft_errno.h"
 
 typedef struct      s_file {

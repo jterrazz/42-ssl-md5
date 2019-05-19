@@ -6,12 +6,15 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:23 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 22:07:37 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:05:52 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 #define ERROR_H
+
+#define FAILURE -1
+#define SUCCESS 0
 
 #define FOREACH_ERROR(ERROR)                                                 \
     ERROR(ERR_NO_ARG, "usage: ft_ssl command [command opts] [command args]") \

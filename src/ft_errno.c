@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./common/common.h"
+#include "./shared/shared.h"
 #include "ft_printf.h"
 #include "./ft_errno.h"
 

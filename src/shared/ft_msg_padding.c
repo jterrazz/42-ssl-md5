@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../common/common.h"
+#include "../shared/shared.h"
 #include "libft.h"
 
 static void add_little_endian_size(unsigned char *start, size_t byte_size) {

@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 22:43:12 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:35:05 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <errno.h>
 #include "./ft_errno.h"
 
+// Test with super long strings for both algs
+// Test algs with overflows ???
+
+// Test with big files where size goes more than 32 bits and compare in a .go file
+// TODO Check size_t is everwhere (also md5)
 // TODO Understand errors.h
  // Test with last arg is s
 

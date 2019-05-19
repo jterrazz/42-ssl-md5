@@ -6,24 +6,32 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 21:41:56 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:34:31 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA256_H
 #define SHA256_H
 
-#include "../common/common.h"
+#include "../shared/shared.h"
 
-typedef unsigned int	t_8i_buffer[8]; // TODO Transofrm in both projects to union values
+# define CHUNK_COUNT(msg_len) (1 + (msg_len + 8) / CHUNK_SIZE ) // TODO Use modulo ??? Use + 1 inside ?
+// sha256_write(st, buf, 64 + 56 - (len % 64));
+//(512 - ((m.length + 1 + 64) % 512))
+# define CHUNK_SIZE 64
 
-typedef unsigned int	(*t_ops_rot)(unsigned int x);
-typedef unsigned int	(*t_ops_bits)(unsigned int x, unsigned int y, unsigned int z);
+extern const unsigned int g_sha256_k[64];
+extern const unsigned int g_sha256_default_buffers[8];
 
-extern const unsigned int g_k[64];
-extern const unsigned int default_sha256_buffers[8];
+/*
+** Prototypes
+*/
 
 char *sha256(const char *msg, size_t msg_len);
+
+/*
+** Operations
+*/
 
 unsigned int sha256_op_a(unsigned int x);
 unsigned int sha256_op_b(unsigned int x);

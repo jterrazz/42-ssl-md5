@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   common.h                                           :+:      :+:    :+:   */
+/*   shared.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 21:16:03 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:30:06 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
-// # define CHUNK_COUNT(msg_len) (1 + (msg_len + 8) / CHUNK_SIZE ) // TODO Use modulo ??? // Check placing the 1 in the middle
-// # define CHUNK_SIZE 64
+// TODO REplace types by stdint.h ???
+// Replace unsigned int by buffer
+# include <stdlib.h>
 
-# include <stdlib.h> // TODO Maybe remove
-
-#define FAILURE -1 // TODO Put in error.h
-#define SUCCESS 0
+typedef unsigned int	(*t_ops_1a)(unsigned int x);
+typedef unsigned int	(*t_ops_buffer)(unsigned int *group); // Transform to generic types ? (unsigned)
 
 typedef enum { FALSE, TRUE } bool;
 
@@ -33,7 +32,9 @@ typedef union			u_l_buffer {
 	unsigned char	c[8];
 }						t_l_buffer;
 
-typedef unsigned int	t_8i_buffer[8]; // TODO Transofrm in both projects to union values // Remove in ft_sha256 too
+// TODO Remove unoin for not used ones and find better name
+typedef unsigned int	t_4i_buffer[4];
+typedef unsigned int	t_8i_buffer[8];
 
 typedef union			u_16i_buffer {
 	unsigned int	i[16];
@@ -45,6 +46,7 @@ typedef union			u_64i_buffer {
 	unsigned char	c[256];
 }						t_64i_buffer;
 
+uint32_t invert_uint32(uint32_t x);
 void ft_buffer_assign_add(unsigned int *dst, const unsigned int *src, size_t length);
 void ft_buffer_copy(unsigned int *dst, const unsigned int *src, size_t length);
 unsigned char *ft_ssl_msg_padding(const char *msg, size_t msg_len, size_t new_len, bool is_little_endian);

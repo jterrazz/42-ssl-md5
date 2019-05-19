@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./common.h"
+#include "./shared.h"
 #include "libft.h"
 
 static bool build_hash_big_endian(t_8i_buffer buffers, size_t buffer_i,

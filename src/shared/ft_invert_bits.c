@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buffer.c                                        :+:      :+:    :+:   */
+/*   ft_invert_bits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 18:27:48 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/09 17:45:13 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/19 23:31:01 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/19 23:31:14 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./common.h"
 
-void ft_buffer_assign_add(unsigned int *dst, const unsigned int *src, size_t length) {
-    size_t i = 0;
+#include "./shared.h"
 
-    while (i < length){
-        dst[i] += src[i];
-        i++;
-    }
-}
+uint32_t invert_uint32(uint32_t x) {
+    t_i_buffer buffer;
 
-void ft_buffer_copy(unsigned int *dst, const unsigned int *src, size_t length) {
-    size_t i = 0;
-
-    while (i < length) {
-        dst[i] = src[i];
-        i++;
-    }
+    buffer.i = x;
+    return (buffer.c[0] << 24) | (buffer.c[1] << 16) | (buffer.c[2] << 8) | (buffer.c[3]);
 }
