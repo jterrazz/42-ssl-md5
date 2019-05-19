@@ -6,95 +6,84 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/15 17:34:49 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/17 18:56:02 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "./cmd.h"
 #include "libft.h"
 #include <stdlib.h>
-#include "ft_printf.h" // del
+// TODO Learn taquin
+// Ternaire en python
+// Learn better python for one project
+// Learn C namespace
+// Learn C BFS ?? (algo de tri)
 
-int flag_s_handler(t_cmd_state *state, int argc, char **argv, int argc_i)
+/*
+** Return the number of args to skip
+** -1 for error
+*/
+//  Handle a wrong flag return
+// Check it compares the return and not rhe -= result in => if (( d -= dd) > x)
+
+static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 {
-  if (argc_i + 1 >= argc) return EXIT_FAILURE;
+    int i;
+    int ret;
 
-  // TODO Secure malloc and realloc
-  state->s_argv =
-    realloc(state->s_argv, state->s_argc * sizeof(char *));
-  state->s_argv[state->s_argc] = argv[argc_i + 1];
-  state->s_argc               += 1;
+    i	= 1;
+    ret = 0;
+    while (state->argv[argc_i][i]) {
+        t_flag *flag_obj;
 
-  return EXIT_SUCCESS;
-}
-
-// Add this
-// 42-ssl-md5 git:(master) ✗ md5 -j
-// md5: illegal option -- j
-// usage: md5 [-pqrtx] [-s string] [files ...]
-
-static void activate_flag(t_cmd_state *state, char *flag)
-{
-  if (!ft_strcmp(flag, "-p")) {
-    state->p = TRUE;
-  } else if (!ft_strcmp(flag, "-q")) {
-    state->q = TRUE;
-  } else if (!ft_strcmp(flag, "-r")) {
-    state->r = TRUE;
-  } else if (!ft_strcmp(flag, "-s")) {
-    state->s = TRUE;
-  }
-}
-
-// TODO Set message for all errors
-static int analyse_arg(t_cmd_state *state, int argc, char **argv, int argc_i)
-{
-  int i;
-
-  i = 0;
-
-  while (!state->input_files && g_common_flags[i].flag) {
-    if (!ft_strcmp(g_common_flags[i].flag, argv[argc_i])) {
-      activate_flag(state, argv[argc_i]);
-
-      if ((g_common_flags[i].arg_count > argc - argc_i) ||
-          (g_common_flags[i].handler &&
-           g_common_flags[i].handler(state, argc, argv,
-                                     argc_i))) return -1;
-
-      return g_common_flags[i].arg_count;
+        flag_obj = cmd_get_flag_obj(state->argv[argc_i][i]);
+        if (flag_obj->handler)
+            ret += flag_obj->handler(state, argc_i);
+        if (ret < 0 || ret > 1) // Error if > 1 = Request to read two times the next argument
+            return ret;
+        cmd_activate_flag(state, state->argv[argc_i][0]);
+        i++;
     }
-    i++;
-  }
-
-  if (!state->input_file_count && argv[argc_i] && (*argv[argc_i] == '-')) {
-    state->wrong_flag = TRUE;
-  } else if (!state->input_file_count) {
-    state->input_files = argv + argc_i;
-    state->input_file_count++;
-  } else {
-    state->input_file_count++;
-  }
-
-  return 0;
+    return (ret);
 }
-
-int set_cmd_state(t_cmd_state *state, int argc, char **argv)
+// TODO Set message for all errors
+/*
+** Return the number of args to skip
+** -1 for error
+*/
+static int cmd_analyse_arg(t_cmd_state *state, int argc_i)
 {
-  int i;
-  int ret;
+    if (!state->input_files && (state->argv[argc_i][0] == '-')) {
+        return (cmd_arg_is_flag(state, argc_i));
+    }
 
-  i = 2;
-  ft_bzero(state, sizeof(t_cmd_state));
+    if (!state->input_file_count && state->argv[argc_i] && (*(state->argv[argc_i]) == '-')) {
+        state->wrong_flag = TRUE;
+    } else if (!state->input_file_count) {
+        state->input_files = state->argv + argc_i;
+        state->input_file_count++;
+    } else {
+        state->input_file_count++;
+    }
 
-  while (i < argc && !state->wrong_flag) {
-    ret = analyse_arg(state, argc, argv, i);
+    return (0);
+}
+int cmd_set_state(t_cmd_state *state, int argc, char **argv)
+{
+    int i;
+    int ret;
 
-    if (ret == -1) return EXIT_FAILURE;
+    i = 2;
+    ft_bzero(state, sizeof(t_cmd_state));
+    state->argc = argc;
+    state->argv = argv;
 
-    i += 1 + ret;
-  }
-  return EXIT_SUCCESS;
+    while (i < argc) {
+        ret = cmd_analyse_arg(state, i);
+
+        if (ret == -1) return (FAILURE);
+
+        i += 1 + ret;
+    }
+    return (SUCCESS);
 }

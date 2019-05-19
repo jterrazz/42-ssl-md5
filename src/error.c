@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_constants.c                                    :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/10 13:04:15 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/17 17:37:26 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/17 17:41:25 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/05/19 20:34:31 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./cmd.h"
-#include "./ft_md5/md5.h"
-#include "./ft_sha256/sha256.h"
- // Rename to cmd
-const t_cmd g_cmds[] = {
-    { "md5",	"MD5",	  &md5		 },
-    { "sha256", "SHA256", &sha256	 },
-    {	     0,	       0,	       0 }
+#include "./common/common.h"
+#include "ft_printf.h"
+#include "./error.h"
+
+t_ssl_error g_ft_ssl_error;
+
+char *g_ssl_errors[] = {
+    FOREACH_ERROR(GENERATE_STRING)
 };
 
-t_flag g_common_flags[] = {
-    { 'p', NULL,			 0 },
-    { 'q', NULL,			 0 },
-    { 'r', NULL,			 0 },
-    { 's', &cmd_flag_s_handler,		 1 },
-    {	 0,		  0,		 0 }
-};
+int ft_error(t_ssl_error error)
+{
+    g_ft_ssl_error = error;
+    return (FAILURE);
+}
+char* ft_strerror(t_ssl_error error)
+{
+    return (g_ssl_errors[error]);
+}

@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/09 18:46:07 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/17 18:52:00 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 // # define CHUNK_SIZE 64
 
 # include <stdlib.h>
+
+#define FAILURE -1
+#define SUCCESS 0
 
 typedef enum { FALSE, TRUE } bool;
 
