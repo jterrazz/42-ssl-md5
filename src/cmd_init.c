@@ -6,13 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 22:20:14 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 01:51:45 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "./cmd.h"
 #include "libft.h"
+#include <stdlib.h>
 
 static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 {
@@ -20,17 +20,18 @@ static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
     int args_to_skip;
     int handler_ret;
 
-    i	= 1;
-    args_to_skip = 0;
+    i			= 1;
+    args_to_skip	= 0;
 
     while (state->argv[argc_i][i]) {
         t_flag *flag_obj;
 
         if (!(flag_obj = cmd_get_flag_obj(state->argv[argc_i][i])))
             return (FAILURE);
+
         if (flag_obj->handler) {
             if ((handler_ret = flag_obj->handler(state, argc_i)) < 0)
-                return handler_ret;
+                return (handler_ret);
         }
         if (flag_obj->arg_count > args_to_skip)
             args_to_skip = flag_obj->arg_count;
@@ -42,7 +43,8 @@ static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 
 static int cmd_analyse_arg(t_cmd_state *state, int argc_i)
 {
-    if (!state->input_file_count && state->argv[argc_i][0] == '-' && state->argv[argc_i][1]) {
+    if (!state->input_file_count && (state->argv[argc_i][0] == '-') &&
+        state->argv[argc_i][1]) {
         return (cmd_arg_is_flag(state, argc_i));
     } else if (!state->input_file_count) {
         state->input_files = state->argv + argc_i;
@@ -51,6 +53,7 @@ static int cmd_analyse_arg(t_cmd_state *state, int argc_i)
 
     return (SUCCESS);
 }
+
 int cmd_init_state(t_cmd_state *state, int argc, char **argv)
 {
     int ret;
@@ -64,6 +67,7 @@ int cmd_init_state(t_cmd_state *state, int argc, char **argv)
     while (argc_i < argc) {
         if ((ret = cmd_analyse_arg(state, argc_i)) < 0)
             return (FAILURE);
+
         argc_i += 1 + ret;
     }
     return (SUCCESS);

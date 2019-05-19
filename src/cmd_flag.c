@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:34:20 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 22:43:14 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 01:54:25 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,17 @@ void cmd_activate_flag(t_cmd_state *state, char flag)
         state->s = TRUE;
     }
 }
-t_flag *cmd_get_flag_obj(char flag)
+
+t_flag*cmd_get_flag_obj(char flag)
 {
-    int		i;
+    int i;
 
     i = 0;
     while (g_cmd_flags[i].flag) {
         if (g_cmd_flags[i].flag == flag) return (&g_cmd_flags[i]);
+
         i++;
     }
     ft_error(ERR_WRONG_FLAG);
-    return NULL;
+    return (NULL);
 }

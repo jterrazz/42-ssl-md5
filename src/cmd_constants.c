@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 13:04:15 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 21:41:40 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:36:32 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "./ft_md5/md5.h"
 #include "./ft_sha256/sha256.h"
 
-const t_cmd g_cmds[] = {
+t_cmd g_cmds[] = {
     { "md5",	"MD5",	  &md5		 },
     { "sha256", "SHA256", &sha256	 },
     {	     0,	       0,	       0 }

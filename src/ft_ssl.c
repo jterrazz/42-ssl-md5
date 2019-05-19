@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 23:35:05 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 00:40:48 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 // Test with super long strings for both algs
 // Test algs with overflows ???
 
-// Test with big files where size goes more than 32 bits and compare in a .go file
+// Test with big files where size goes more than 32 bits and compare in a .go
+// file
 // TODO Check size_t is everwhere (also md5)
 // TODO Understand errors.h
- // Test with last arg is s
+// Test with last arg is s
 
- // Choose a -ssssss string comportment
- // make && ./a.out md5 -s arg1 -sss arg2 -s arg3
+// Choose a -ssssss string comportment
+// make && ./a.out md5 -s arg1 -sss arg2 -s arg3
 
 // Print this error:
 // ft_printf("ft_ssl: %s: %s: No such file or directory\n",
 //     cmd.cmd,
 //     state->input_files[i]);
-
 
 // Add this
 // 42-ssl-md5 git:(master) ✗ md5 -j
@@ -69,16 +69,18 @@
 
 static int ft_ssl_error(int argc, char **argv)
 {
-    if (g_ft_ssl_error == ERR_INVALID_CMD) { // TODO Find a way to build errors str in global ?
-        ft_printf("ft_ssl: Error: '%s' is an invalid command\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha256\n\nCipher commands:\n", argv[1]);
+    if (g_ft_ssl_error == ERR_INVALID_CMD) {    // TODO Find a way to build
+                                                // errors str in global ?
+        ft_printf(
+            "ft_ssl: Error: '%s' is an invalid command\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha256\n\nCipher commands:\n",
+            argv[1]);
     } else if (g_ft_ssl_error == ERR_ERRNO) {
-        ft_printf("%s", strerror(errno)); // TODO Check that
+        ft_printf("%s", strerror(errno));       // TODO Check that
     } else {
         ft_printf("%s\n", ft_strerror(g_ft_ssl_error));
     }
     return (FAILURE);
 }
-
 static int ft_ssl(int argc, char **argv)
 {
     int		i;
@@ -94,6 +96,7 @@ static int ft_ssl(int argc, char **argv)
         if (!ft_strcmp(g_cmds[i].cmd,
             argv[1])) return (cmd_init_state(&state, argc,
             argv) || cmd_run(g_cmds[i], &state) || cmd_clean(&state));
+
         i++;
     }
 
