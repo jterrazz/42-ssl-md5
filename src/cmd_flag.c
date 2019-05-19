@@ -6,29 +6,30 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:34:20 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/17 19:03:28 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 22:43:14 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 int cmd_flag_s_handler(t_cmd_state *state, int argc_i)
 {
-    if (argc_i + 1 >= state->argc) return (ft_error(ERR_S_FLAG_NO_ARG)); // Test with last arg is s // Add error name
+    char **old_s_argv;
+    if (argc_i + 1 >= state->argc) return (ft_error(ERR_S_FLAG_NO_ARG));
 
-    // TODO Secure malloc and realloc
-    // TODO No realloc allowed
-    state->s_argv =
-        realloc(state->s_argv, state->s_argc * sizeof(char *));
+    old_s_argv = state->s_argv;
+    if (!(state->s_argv = malloc((state->s_argc + 1) * sizeof(char *)))) {
+        return (ft_error(ERR_ERRNO));
+    }
+    ft_memmove(state->s_argv, old_s_argv, state->s_argc * sizeof(char *));
+    free(old_s_argv);
     state->s_argv[state->s_argc]	= state->argv[argc_i + 1];
     state->s_argc			+= 1;
 
     return (SUCCESS);
 }
-// Add this
-// 42-ssl-md5 git:(master) ✗ md5 -j
-// md5: illegal option -- j
-// usage: md5 [-pqrtx] [-s string] [files ...]
 
 void cmd_activate_flag(t_cmd_state *state, char flag)
 {
@@ -47,9 +48,10 @@ t_flag *cmd_get_flag_obj(char flag)
     int		i;
 
     i = 0;
-    while (g_common_flags[i].flag) {
-        if (g_common_flags[i].flag == flag) return (&g_common_flags[i]);
+    while (g_cmd_flags[i].flag) {
+        if (g_cmd_flags[i].flag == flag) return (&g_cmd_flags[i]);
         i++;
     }
+    ft_error(ERR_WRONG_FLAG);
     return NULL;
 }

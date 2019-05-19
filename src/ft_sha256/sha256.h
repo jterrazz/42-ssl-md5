@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/09 17:33:38 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 21:41:56 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ unsigned int sha256_op_c(unsigned int x);
 unsigned int sha256_op_d(unsigned int x);
 unsigned int sha256_op_ch(unsigned int x, unsigned int y, unsigned int z);
 unsigned int sha256_op_maj(unsigned int x, unsigned int y, unsigned int z);
+
 #endif

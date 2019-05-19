@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 13:03:38 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/17 19:00:52 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 21:00:55 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #define CMD_BUFF_SIZE 1000
 
 #include "./common/common.h"
-#include "./error.h"
+#include "./ft_errno.h"
 
 typedef struct      s_file {
     char	*data;
@@ -62,7 +62,7 @@ int cmd_flag_s_handler(t_cmd_state	*state,
 int cmd_clean(t_cmd_state *state);
 
 int	cmd_run(const t_cmd cmd, t_cmd_state *state);
-int	cmd_set_state(t_cmd_state	*state,
+int	cmd_init_state(t_cmd_state	*state,
     int					argc,
     char				**argv);
 t_file	* get_file_content(char *filename);
@@ -70,6 +70,6 @@ t_file	* read_fd_content(int fd);
 void	free_file(t_file *file);
 
 extern const t_cmd	g_cmds[];
-extern t_flag	g_common_flags[];
+extern t_flag	g_cmd_flags[];
 
 #endif  /* ifndef ARG_DISPATCHER_H */

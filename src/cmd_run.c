@@ -6,13 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 15:59:39 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/17 15:20:22 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 22:26:55 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include <errno.h>
 
 static int print_ssl_pipe(const t_cmd cmd, const t_cmd_state *state)
 {
@@ -20,18 +21,11 @@ static int print_ssl_pipe(const t_cmd cmd, const t_cmd_state *state)
     char	*hash;
 
     if ((!state->s_argc && !state->input_file_count) || (state->p)) {
-        file = read_fd_content(0);
+        if (!(file = read_fd_content(0)) ||
+            !(hash = cmd.handler(file->data, file->length))) return (FAILURE);
 
-        if (!(hash =
-                  cmd.handler(file->data,
-                      file->length))) return (FAILURE);
-
-        if (state->p)
-            ft_printf("%s%s\n",
-                file->data,
-                hash);
-        else ft_printf("%s\n",
-            hash);
+        if (state->p) ft_printf("%s%s\n", file->data, hash);
+        else ft_printf("%s\n", hash);
 
         free_file(file);
         free(hash);
@@ -60,41 +54,45 @@ static int print_ssl_strings(const t_cmd cmd, const t_cmd_state *state)
     }
     return (SUCCESS);
 }
+
+static int print_file_result(const t_cmd cmd, const t_cmd_state *state, t_file *file, int i) {
+    char	*hash;
+    if (!(hash = cmd.handler(file->data, file->length))) return (FAILURE);
+
+    if (state->q) ft_printf("%s\n", hash);
+    else if (state->r) ft_printf("%s %s\n",
+        hash,
+        state->input_files[i]);
+    else ft_printf("%s (%s) %s\n",
+        cmd.full_name,
+        state->input_files[i],
+        hash);
+    free(hash);
+    free_file(file);
+    return (SUCCESS);
+}
+
 static int print_ssl_files(const t_cmd cmd, const t_cmd_state *state)
 {
     int		i;
-    char	*hash;
     t_file	*file;
 
     i = 0;
 
     while (i < state->input_file_count) {
-        file = get_file_content(state->input_files[i]);
-
-        if (!file) {
-            ft_printf("ft_ssl: %s: %s: No such file or directory\n",
+        if (!(file = get_file_content(state->input_files[i]))) {
+            ft_printf("ft_ssl: %s: %s: %s\n",
                 cmd.cmd,
-                state->input_files[i]);
-        } else {
-            if (!(hash =
-                      cmd.handler(file->data, file->length))) return (FAILURE);
-
-            if (state->q) ft_printf("%s\n", hash);
-            else if (state->r) ft_printf("%s %s\n",
-                hash,
-                state->input_files[i]);
-            else ft_printf("%s (%s) %s\n",
-                cmd.full_name,
                 state->input_files[i],
-                hash);
-            free(hash);
-            free_file(file);
+                strerror(errno));
+        } else {
+            if ((print_file_result(cmd, state, file, i) == FAILURE))
+                return (FAILURE);
         }
         i++;
     }
     return (SUCCESS);
 }
-// Secure that
 int cmd_run(const t_cmd cmd, t_cmd_state *state)
 {
     return (print_ssl_pipe(cmd, state) ||

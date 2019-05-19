@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/17 18:52:00 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 21:16:03 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 // # define CHUNK_COUNT(msg_len) (1 + (msg_len + 8) / CHUNK_SIZE ) // TODO Use modulo ??? // Check placing the 1 in the middle
 // # define CHUNK_SIZE 64
 
-# include <stdlib.h>
+# include <stdlib.h> // TODO Maybe remove
 
-#define FAILURE -1
+#define FAILURE -1 // TODO Put in error.h
 #define SUCCESS 0
 
 typedef enum { FALSE, TRUE } bool;

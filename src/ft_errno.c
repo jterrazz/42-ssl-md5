@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_errno.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:25 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 20:34:31 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/19 21:00:42 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./common/common.h"
 #include "ft_printf.h"
-#include "./error.h"
+#include "./ft_errno.h"
 
 t_ssl_error g_ft_ssl_error;
 
