@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 19:31:51 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:44:34 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
                                   (MD5_CHUNK_COUNT_PARTIAL(msg_len) ? 1 : 0))
 
 #include "../shared/shared.h"
-#include <stdlib.h>
-#include <string.h>
+
+/*
+** Globals
+*/
 
 extern const unsigned int	g_md5_shifts[64];
 extern const unsigned int	g_computed_sines[64];

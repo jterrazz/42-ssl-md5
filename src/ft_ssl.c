@@ -6,11 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:35:44 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:40:43 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./cmd.h"      // TODO Remove and delete .h if not used
+#include "./cmd/cmd.h"      // TODO Remove and delete .h if not used
 #include "./ft_errno.h"
 #include "ft_printf.h"
 #include "libft.h"      // Del ?
