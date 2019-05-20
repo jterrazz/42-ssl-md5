@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 15:59:39 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 01:53:17 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 18:36:10 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,12 @@ static int print_file_result(const t_cmd cmd,
     if (!(hash = cmd.handler(file->data, file->length)))
         return (FAILURE);
 
-    if (state->q) ft_printf("%s\n", hash);
-    else if (state->r) ft_printf("%s %s\n", hash, state->input_files[i]);
-    else ft_printf("%s (%s) %s\n", cmd.full_name, state->input_files[i], hash);
+    if (state->q)
+        ft_printf("%s\n", hash);
+    else if (state->r)
+        ft_printf("%s %s\n", hash, state->input_files[i]);
+    else
+        ft_printf("%s (%s) %s\n", cmd.full_name, state->input_files[i], hash);
     free(hash);
     free_file(file);
     return (SUCCESS);

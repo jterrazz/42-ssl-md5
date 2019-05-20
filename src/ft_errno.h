@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:23 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/19 23:05:52 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 18:36:00 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
     ERROR(ERR_INVALID_CMD, "")                                               \
     ERROR(ERR_ERRNO, "")                                                     \
     ERROR(ERR_WRONG_FLAG, "")                                                \
-    ERROR(ERR_S_FLAG_NO_ARG, "md5: option requires an argument -- s\nusage: md5 [-pqrtx] [-s string] [files ...]")
+    ERROR(ERR_S_FLAG_NO_ARG,                                                 \
+    "md5: option requires an argument -- s\nusage: md5 [-pqrtx] [-s string] [files ...]")
 
 #define GENERATE_ENUM(ENUM, STRING) ENUM,
 #define GENERATE_STRING(ENUM, STRING) STRING,
@@ -31,7 +32,7 @@ typedef enum e_ssl_error {
 } t_ssl_error;
 
 int	ft_error(t_ssl_error error);
-char	* ft_strerror(t_ssl_error error);
+char	*ft_strerror(t_ssl_error error);
 
 extern t_ssl_error g_ft_ssl_error;
 

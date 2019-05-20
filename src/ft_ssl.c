@@ -6,16 +6,16 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 00:40:48 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 18:35:44 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "./cmd.h"      // TODO Remove and delete .h if not used
-#include "libft.h"      // Del ?
-#include <stdlib.h>
-#include <errno.h>
 #include "./ft_errno.h"
+#include "ft_printf.h"
+#include "libft.h"      // Del ?
+#include <errno.h>
+#include <stdlib.h>
 
 // Test with super long strings for both algs
 // Test algs with overflows ???
@@ -81,6 +81,7 @@ static int ft_ssl_error(int argc, char **argv)
     }
     return (FAILURE);
 }
+
 static int ft_ssl(int argc, char **argv)
 {
     int		i;
@@ -103,6 +104,7 @@ static int ft_ssl(int argc, char **argv)
     ft_error(ERR_INVALID_CMD);
     return (FAILURE);
 }
+
 int main(int argc, char **argv)
 {
     return (ft_ssl(argc, argv) && ft_ssl_error(argc, argv));
