@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:39:05 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:34:51 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 #include "../shared/shared.h"
 
-#define CHUNK_SIZE 64
-#define CHUNK_COUNT(msg_len) (1 + (msg_len + 8) / CHUNK_SIZE)
-
-// TODO Use modulo ??? Use + 1 inside ?
-// sha256_write(st, buf, 64 + 56 - (len % 64));
-//(512 - ((m.length + 1 + 64) % 512))
+#define SHA256_CHUNK_SIZE 64
+#define SHA256_CHUNK_COUNT_FILLED(msg_len) ((msg_len + 1 + 8) / \
+                                            SHA256_CHUNK_SIZE)
+#define SHA256_CHUNK_COUNT_PARTIAL(msg_len) ((msg_len + 1 + 8) % \
+                                             SHA256_CHUNK_SIZE)
+#define SHA256_CHUNK_COUNT(msg_len) (SHA256_CHUNK_COUNT_FILLED(msg_len) +       \
+                                     (SHA256_CHUNK_COUNT_PARTIAL(msg_len) ? 1 : \
+                                      0))
 
 extern const unsigned int	g_sha256_k[64];
 extern const unsigned int	g_sha256_default_buffers[8];

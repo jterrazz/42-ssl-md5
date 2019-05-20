@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:55:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:42:13 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:35:02 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ static void md5_transform_buffers(unsigned char *padded_msg,
 
     ft_buffer_copy(buffers, g_md5_default_buffers, 4);
 
-    while (chunk_i < CHUNK_COUNT(msg_len)) {
-        ft_memcpy(chunk.c, padded_msg + chunk_i * CHUNK_SIZE, CHUNK_SIZE);
+    while (chunk_i < MD5_CHUNK_COUNT(msg_len)) {
+        ft_memcpy(chunk.c, padded_msg + chunk_i * MD5_CHUNK_SIZE,
+            MD5_CHUNK_SIZE);
         chunk_cursor = 0;
 
         ft_buffer_copy(tmp_buffers, buffers, 4);
@@ -68,7 +69,7 @@ char*md5(const char *msg, size_t msg_len)
 
     if (!(padded_msg =
               ft_ssl_msg_padding(msg, msg_len,
-                  CHUNK_COUNT(msg_len) * CHUNK_SIZE, TRUE)))
+                  MD5_CHUNK_COUNT(msg_len) * MD5_CHUNK_SIZE, TRUE)))
         return (NULL);
 
     md5_transform_buffers(padded_msg, msg_len, buffers);

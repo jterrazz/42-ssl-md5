@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:39:43 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:34:58 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ static void sha256_run_ops(t_8i_buffer buffers,
 
     chunk_i = 0;
 
-    while (chunk_i < CHUNK_COUNT(msg_len)) {
-        init_w_array(&w_array, msg_buffer += chunk_i * CHUNK_SIZE);
+    while (chunk_i < SHA256_CHUNK_COUNT(msg_len)) {
+        init_w_array(&w_array, msg_buffer += chunk_i * SHA256_CHUNK_SIZE);
         ft_buffer_copy(internal_buffers, buffers, 8);
         sha256_tranform_buffers(internal_buffers, w_array);
         ft_buffer_assign_add(buffers, internal_buffers, 8);
@@ -85,7 +85,7 @@ char*sha256(const char *msg, size_t msg_len)
 
     if (!(msg_buffer =
               ft_ssl_msg_padding(msg, msg_len,
-                  CHUNK_COUNT(msg_len) * CHUNK_SIZE, FALSE)))
+                  SHA256_CHUNK_COUNT(msg_len) * SHA256_CHUNK_SIZE, FALSE)))
         return (NULL);
 
     ft_buffer_copy(buffers, g_sha256_default_buffers, 8);

@@ -6,25 +6,18 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:41:45 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:31:51 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MD5_H
 #define MD5_H
 
-// Explainations: a chunk is 64 bits or 512 bits // A chunk is a 512 bits part
-// of the buffer;
-// https://crypto.stackexchange.com/questions/10829/why-initialize-sha1-with-specific-buffer
-// Append 1 bit to the message + length so its 4 bits (int) + 4 bits (int)
-// Test and compare with length from 0 to 512 + try sending empty files
-// Take the wikipedia algorythm to explain
-// MD5 uses a buffer that is made up of four words that are each 32 bits long =>
-// 4 bytes => int
-
-// TODO Use modulo ??? // Check placing the 1 in the middle
-#define CHUNK_COUNT(msg_len) (1 + (msg_len + 8) / CHUNK_SIZE)
-#define CHUNK_SIZE 64
+#define MD5_CHUNK_SIZE 64
+#define MD5_CHUNK_COUNT_FILLED(msg_len) ((msg_len + 1 + 8) / MD5_CHUNK_SIZE)
+#define MD5_CHUNK_COUNT_PARTIAL(msg_len) ((msg_len + 1 + 8) % MD5_CHUNK_SIZE)
+#define MD5_CHUNK_COUNT(msg_len) (MD5_CHUNK_COUNT_FILLED(msg_len) + \
+                                  (MD5_CHUNK_COUNT_PARTIAL(msg_len) ? 1 : 0))
 
 #include "../shared/shared.h"
 #include <stdlib.h>
@@ -53,4 +46,5 @@ unsigned int	md5_op_g_1(unsigned int i);
 unsigned int	md5_op_g_2(unsigned int i);
 unsigned int	md5_op_g_3(unsigned int i);
 unsigned int	md5_op_g_4(unsigned int i);
+
 #endif
