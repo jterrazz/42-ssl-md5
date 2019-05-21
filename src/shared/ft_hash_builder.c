@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:39:14 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:38:39 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/21 15:45:19 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static bool build_hash_big_endian(t_8i_buffer buffers,
     if (!(hash_tmp = ft_uitoa_base_len(buffers[buffer_i], 16, 'a', 8)))
         return (FALSE);
 
-    ft_strncpy(hash + 2 + (buffer_i * 8), hash_tmp, 8);
+    ft_strncpy(hash + (buffer_i * 8), hash_tmp, 8);
     free(hash_tmp);
 
     return (TRUE);
@@ -44,7 +44,7 @@ static bool build_hash_little_endian(t_8i_buffer buffers,
                   ft_uitoa_base_len(int_buffer.c[i], 16, 'a', 2)))
             return (FALSE);
 
-        ft_strncpy(hash + 2 + i * 2 + (buffer_i * 8), hash_tmp, 8);
+        ft_strncpy(hash + i * 2 + (buffer_i * 8), hash_tmp, 8);
         free(hash_tmp);
         i++;
     }
@@ -59,10 +59,8 @@ char*build_hash(t_8i_buffer buffers, size_t buffer_count, bool is_little_endian)
     size_t	buffer_i;
 
     buffer_i = 0;
-    if (!(hash = ft_strnew(buffer_count * 8 + 2)))
+    if (!(hash = ft_strnew(buffer_count * 8)))
         return (NULL);
-
-    ft_strncpy(hash, "0x", 2);
 
     while (buffer_i < buffer_count) {
         if (is_little_endian) {

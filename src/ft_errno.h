@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:23 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:36:00 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/21 18:59:45 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,4 @@ char	*ft_strerror(t_ssl_error error);
 
 extern t_ssl_error g_ft_ssl_error;
 
-#endif  /* ifndef ERROR_H */
+#endif

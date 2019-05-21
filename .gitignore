@@ -3,6 +3,7 @@ obj/
 *.gch
 *.so
 *.o
+*.a
 
 # Executable
 a.out

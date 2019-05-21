@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:36:48 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/21 15:59:49 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
         }
         if (flag_obj->arg_count > args_to_skip)
             args_to_skip = flag_obj->arg_count;
-        cmd_activate_flag(state, state->argv[argc_i][0]);
+        cmd_activate_flag(state, state->argv[argc_i][i]);
         i++;
     }
     return (args_to_skip);

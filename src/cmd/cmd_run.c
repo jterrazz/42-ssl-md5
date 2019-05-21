@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 15:59:39 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:36:10 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/21 19:31:13 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,20 @@ static int print_ssl_pipe(const t_cmd cmd, const t_cmd_state *state)
 {
     t_file	*file;
     char	*hash;
+    char	*data;
 
     if ((!state->s_argc && !state->input_file_count) || (state->p)) {
         if (!(file = read_fd_content(0)) ||
             !(hash = cmd.handler(file->data, file->length)))
             return (FAILURE);
 
-        if (state->p) ft_printf("%s%s\n", file->data, hash);
+        if (!(data = ft_strnew(file->length)))
+            return (ft_error(ERR_ERRNO));
+
+        ft_memcpy(data, file->data, file->length);
+        if (state->p) ft_printf("%s%s\n", data, hash);
         else ft_printf("%s\n", hash);
+        free(data);
 
         free_file(file);
         free(hash);
@@ -52,7 +58,7 @@ static int print_ssl_strings(const t_cmd cmd, const t_cmd_state *state)
         else if (state->r)
             ft_printf("%s \"%s\"\n", hash, state->s_argv[i]);
         else
-            ft_printf("%s (\"%s\") %s\n", cmd.full_name,
+            ft_printf("%s (\"%s\") = %s\n", cmd.full_name,
                 state->s_argv[i], hash);
         free(hash);
         i++;
@@ -75,7 +81,7 @@ static int print_file_result(const t_cmd cmd,
     else if (state->r)
         ft_printf("%s %s\n", hash, state->input_files[i]);
     else
-        ft_printf("%s (%s) %s\n", cmd.full_name, state->input_files[i], hash);
+        ft_printf("%s (%s) = %s\n", cmd.full_name, state->input_files[i], hash);
     free(hash);
     free_file(file);
     return (SUCCESS);

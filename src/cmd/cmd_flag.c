@@ -6,12 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:34:20 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:33:46 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/21 15:59:59 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd.h"
-#include "ft_printf.h"
 #include "libft.h"
 
 int cmd_flag_s_handler(t_cmd_state *state, int argc_i)

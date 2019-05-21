@@ -14,3 +14,7 @@ https://crypto.stackexchange.com/questions/10829/why-initialize-sha1-with-specif
 // Take the wikipedia algorythm to explain
 // MD5 uses a buffer that is made up of four words that are each 32 bits long =>
 // 4 bytes => int
+
+Current issues
+// Choose a -ssssss string comportment
+// make && ./a.out md5 -s arg1 -sss arg2 -s arg3

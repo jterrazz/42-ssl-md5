@@ -6,15 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 19:44:51 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/20 19:56:07 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 #define UTILS_H
 
-// TODO REplace types by stdint.h ???
-// Replace unsigned int by buffer
 #include <stdlib.h>
 
 typedef unsigned int    (*t_ops_1a)(unsigned int x);
