@@ -9,6 +9,8 @@ import (
 
 // Add sha256 support
 func TestMain(m *testing.M) {
+	shared.InitFlags()
+
 	out, err := shared.Exec("make -C ..")
 
 	if (err == nil) {

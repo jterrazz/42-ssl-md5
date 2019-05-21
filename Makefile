@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/05/21 15:10:34 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/05/21 19:46:05 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,13 @@ PATH_OBJ = obj
 PATH_SRC = src
 
 SOURCES += ft_ssl.c ft_errno.c
-SOURCES += cmd/cmd_clean.c cmd/cmd_constants.c cmd/cmd_flag.c cmd/cmd_init.c cmd/cmd_reader.c cmd/cmd_run.c
+SOURCES += cmd/clean.c cmd/constants.c cmd/flag.c cmd/init.c cmd/reader.c \
+	cmd/run.c
 SOURCES += ft_md5/constants.c ft_md5/md5.c ft_md5/ops_bits.c ft_md5/ops_g.c
-SOURCES += ft_sha256/constants.c ft_sha256/ops_bits.c ft_sha256/ops_rotation.c ft_sha256/sha256.c
-SOURCES += shared/ft_buffer.c shared/ft_hash_builder.c shared/ft_invert_bits.c shared/ft_msg_padding.c shared/ft_rotate_bits.c shared/ft_uitoa_base.c
+SOURCES += ft_sha256/constants.c ft_sha256/ops_bits.c ft_sha256/ops_rotation.c \
+	ft_sha256/sha256.c
+SOURCES += shared/ft_buffer.c shared/ft_hash_builder.c shared/ft_invert_bits.c \
+	shared/ft_msg_padding.c shared/ft_rotate_bits.c shared/ft_uitoa_base.c
 
 OBJECTS = $(SOURCES:%.c=$(PATH_OBJ)/%.o)
 

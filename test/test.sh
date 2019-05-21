@@ -12,4 +12,4 @@ if [ ! -d "$HOME/go/src/github.com/andreyvit/diff" ]; then
 fi
 
 # Run tests
-go run ~/go/src/github.com/kyoh86/richgo/main.go test -v
+go run ~/go/src/github.com/kyoh86/richgo/main.go test -v "$@"

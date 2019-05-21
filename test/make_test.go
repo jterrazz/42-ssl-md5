@@ -2,16 +2,13 @@ package test
 
 import (
 	"./shared"
-	"flag"
 	"fmt"
 	"testing"
 )
 
 // TODO Test if .o files are still here
 func TestMake(t *testing.T) {
-	test_make := flag.Bool("m", false, "Will test for makefiles")
-
-	if *test_make == false {
+	if *shared.FlagM == false {
 		t.Skip("Skip")
 	}
 	for i, test := range []struct {
