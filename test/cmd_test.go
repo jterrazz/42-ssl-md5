@@ -30,6 +30,8 @@ func TestSubjectCommands(t *testing.T) {
 
 func TestSubjectCommandsWithFile(t *testing.T) {
 	_, file_err := shared.ExecSafe(t, "echo \"And above all,\" > file")
+	// TODO Secure
+	shared.ExecSafe(t, "echo \"https://www.youtube.com/watch?v=w-5yAtMtrSM\" > big_smoke_order_remix")
 
 	if file_err == nil {
 		t.Parallel()
@@ -45,12 +47,16 @@ func TestSubjectCommandsWithFile(t *testing.T) {
 			{"echo \"GL HF let's go\" | ../ft_ssl md5 -p -s \"foo\" file", "GL HF let's go\nd1e3cc342b6da09480b27ec57ff243e2\nMD5 (\"foo\") = acbd18db4cc2f85cedef654fccc4a4d8\nMD5 (file) = 53d53ea94217b259c11a5a2d104ec58a\n"},
 			{"echo \"one more thing\" | ../ft_ssl md5 -r -p -s \"foo\" file -s \"bar\"", "one more thing\na0bd1876c6f011dd50fae52827f445f5\nacbd18db4cc2f85cedef654fccc4a4d8 \"foo\"\n53d53ea94217b259c11a5a2d104ec58a file\nft_ssl: md5: -s: No such file or directory\nft_ssl: md5: bar: No such file or directory\n"},
 			{"echo \"just to be extra clear\" | ../ft_ssl md5 -r -q -p -s \"foo\" file", "just to be extra clear\n3ba35f1ea0d170cb3b9a752e3360286c\nacbd18db4cc2f85cedef654fccc4a4d8\n53d53ea94217b259c11a5a2d104ec58a\n"},
+			{"../ft_ssl sha256 -s \"wubba lubba dub dub\"", "SHA256 (\"wubba lubba dub dub\") = 23a0944d11b5a54f1970492b5265c732044ae824b7d5656acb193e7f0e51e5fa\n"},
+			{"../ft_ssl sha256 -q big_smoke_order_remix", "a8dc621c3dcf18a8a2eddae1845e8e5f6498970a867056ac5f7121ac3d66cfd9\n"},
 		} {
 			t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 				shared.ExecTestSuccess(t, test.cmd, test.expected)
 			})
 		}
 
+
 		shared.ExecSafe(t, "rm file")
+		shared.ExecSafe(t, "rm big_smoke_order_remix")
 	}
 }
