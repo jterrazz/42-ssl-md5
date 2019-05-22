@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 19:44:34 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 18:08:01 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 ** Globals
 */
 
-extern const unsigned int	g_md5_shifts[64];
-extern const unsigned int	g_computed_sines[64];
-extern const t_8i_buffer	g_md5_default_buffers;
+extern const uint32_t	g_md5_shifts[64];
+extern const uint32_t	g_computed_sines[64];
+extern const t_4_uint32 g_md5_default_buffers;
 
 /*
 ** Prototypes
@@ -39,14 +39,14 @@ char*md5(const char *msg, size_t msg_len);
 ** Operations
 */
 
-unsigned int	md5_op_shift_1(unsigned int buffers[]);
-unsigned int	md5_op_shift_2(unsigned int buffers[]);
-unsigned int	md5_op_shift_3(unsigned int buffers[]);
-unsigned int	md5_op_shift_4(unsigned int buffers[]);
+uint32_t	md5_op_shift_1(uint32_t buffers[]);
+uint32_t	md5_op_shift_2(uint32_t buffers[]);
+uint32_t	md5_op_shift_3(uint32_t buffers[]);
+uint32_t	md5_op_shift_4(uint32_t buffers[]);
 
-unsigned int	md5_op_g_1(unsigned int i);
-unsigned int	md5_op_g_2(unsigned int i);
-unsigned int	md5_op_g_3(unsigned int i);
-unsigned int	md5_op_g_4(unsigned int i);
+uint32_t	md5_op_g_1(uint32_t i);
+uint32_t	md5_op_g_2(uint32_t i);
+uint32_t	md5_op_g_3(uint32_t i);
+uint32_t	md5_op_g_4(uint32_t i);
 
 #endif

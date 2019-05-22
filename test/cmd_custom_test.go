@@ -15,6 +15,13 @@ import (
 // "md5 shared",
 // "md5 - y",
 // "md5 -j",
+
+// Not the same result but its exepected
+// "md5 -s \"do\" -dd -s \"do\"  Makef",
+// "md5 -s \"do\" -d Makefile",
+// "md5 -s yo -s ww -r -s 22",
+// "md5 -s yo -r",
+// "md5 -s -r -rs -r",
 func TestCustomCommandsWithFile(t *testing.T) {
 	commands := []string{
 		"md5 -s \"yo\"",
@@ -24,11 +31,6 @@ func TestCustomCommandsWithFile(t *testing.T) {
 		"echo \"yoo\nwwwwww\n\" | md5 -p",
 		"md5 ex_empty",
 		"echo \"1223456\" | md5",
-		// "md5 -s \"do\" -dd -s \"do\"  Makef",
-		// "md5 -s \"do\" -d Makefile",
-		// "md5 -s yo -s ww -r -s 22",
-		// "md5 -s yo -r",
-		// "md5 -s -r -rs -r",
 	}
 
 	shared.ExecSafe(t, "touch ex_empty")

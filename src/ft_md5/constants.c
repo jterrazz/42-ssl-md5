@@ -6,13 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 18:30:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:56:09 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 18:06:55 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./md5.h"
 
-const t_8i_buffer g_md5_default_buffers = {
+const t_4_uint32 g_md5_default_buffers = {
     0x67452301,
     0xEFCDAB89,
     0x98BADCFE,

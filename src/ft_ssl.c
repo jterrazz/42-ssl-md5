@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:42:40 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:58:12 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 #include <stdlib.h>
-
-// TODO REplace types by stdint.h ???
-// Replace unsigned int by buffer
 
 static int ft_ssl(int argc, char **argv)
 {

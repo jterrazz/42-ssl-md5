@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:49:38 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 18:14:07 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,14 @@ typedef union           u_l_buffer {
     uint8_t	c[8];
 }                       t_l_buffer;
 
-// TODO Remove unoin for not used ones and find better name
-typedef uint32_t	t_4i_buffer[4];
-typedef uint32_t	t_8i_buffer[8];
-
 typedef union           u_16i_buffer {
     uint32_t	i[16];
     uint8_t	c[64];
 }                       t_16i_buffer;
 
-typedef union           u_64i_buffer {
-    uint32_t	i[64];
-    uint8_t	c[256];
-}                       t_64i_buffer;
+typedef uint32_t	t_4_uint32[4];
+typedef uint32_t	t_8_uint32[8];
+typedef uint32_t	t_64_uint32[64];
 
 uint32_t	invert_uint32(uint32_t x);
 void		ft_buffer_assign_add(uint32_t *dst,
@@ -63,7 +58,7 @@ char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter);
 char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter,
     size_t len);
 
-char*build_hash(t_8i_buffer buffers, size_t buffer_count,
+char*build_hash(uint32_t *buffers, size_t buffer_count,
     bool is_little_endian);
 
 #endif

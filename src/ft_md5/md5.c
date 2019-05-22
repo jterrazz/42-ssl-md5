@@ -6,14 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:55:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:55:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 18:15:13 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./md5.h"
 #include "libft.h"
 
-static void run_md5_byte_ops(int i, t_16i_buffer chunk, t_4i_buffer tmp_buffers)
+static void run_md5_byte_ops(int i, t_16i_buffer chunk, t_4_uint32 tmp_buffers)
 {
     static t_ops_buffer ft_f[4] =
     { &md5_op_shift_1, &md5_op_shift_2, &md5_op_shift_3, &md5_op_shift_4 };
@@ -37,12 +37,12 @@ static void run_md5_byte_ops(int i, t_16i_buffer chunk, t_4i_buffer tmp_buffers)
 
 static void md5_transform_buffers(unsigned char *padded_msg,
     size_t msg_len,
-    t_4i_buffer buffers)
+    t_4_uint32 buffers)
 {
     size_t		chunk_i;
     size_t			chunk_cursor;
     t_16i_buffer	chunk;
-    t_4i_buffer		tmp_buffers;
+    t_4_uint32		tmp_buffers;
 
     chunk_i		= 0;
     chunk_cursor	= 0;
@@ -65,7 +65,7 @@ static void md5_transform_buffers(unsigned char *padded_msg,
 char*md5(const char *msg, size_t msg_len)
 {
     unsigned char	*padded_msg;
-    t_4i_buffer		buffers;
+    t_4_uint32		buffers;
 
     if (!(padded_msg =
               ft_ssl_msg_padding(msg, msg_len,

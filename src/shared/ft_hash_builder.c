@@ -6,14 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:39:14 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:51:51 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 18:15:09 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./shared.h"
 #include "libft.h"
 
-static bool build_hash_big_endian(t_8i_buffer buffers,
+static bool build_hash_big_endian(uint32_t *buffers,
     size_t buffer_i,
     char *hash)
 {
@@ -28,7 +28,7 @@ static bool build_hash_big_endian(t_8i_buffer buffers,
     return (TRUE);
 }
 
-static bool build_hash_little_endian(t_8i_buffer buffers,
+static bool build_hash_little_endian(uint32_t *buffers,
     size_t buffer_i,
     char *hash)
 {
@@ -52,8 +52,7 @@ static bool build_hash_little_endian(t_8i_buffer buffers,
     return (TRUE);
 }
 
-// TODO Check what upper of lower case to use
-char*build_hash(t_8i_buffer buffers, size_t buffer_count, bool is_little_endian)
+char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian)
 {
     char	*hash;
     size_t	buffer_i;
