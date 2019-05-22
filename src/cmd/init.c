@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_init.c                                         :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/21 15:59:49 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:13:36 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
     while (state->argv[argc_i][i]) {
         t_flag *flag_obj;
 
-        if (!(flag_obj = cmd_get_flag_obj(state->argv[argc_i][i])))
+        if (!(flag_obj = cmd_get_flag_obj(state, state->argv[argc_i][i])))
             return (FAILURE);
 
         if (flag_obj->handler) {
@@ -54,7 +54,7 @@ static int cmd_analyse_arg(t_cmd_state *state, int argc_i)
     return (SUCCESS);
 }
 
-int cmd_init_state(t_cmd_state *state, int argc, char **argv)
+int cmd_init_state(t_cmd_state *state, int argc, char **argv, t_cmd *cmd)
 {
     int ret;
     int argc_i;
@@ -63,6 +63,7 @@ int cmd_init_state(t_cmd_state *state, int argc, char **argv)
     ft_bzero(state, sizeof(t_cmd_state));
     state->argc = argc;
     state->argv = argv;
+    state->cmd = cmd;
 
     while (argc_i < argc) {
         if ((ret = cmd_analyse_arg(state, argc_i)) < 0)

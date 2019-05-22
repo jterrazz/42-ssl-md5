@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:23 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/21 18:59:45 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:28:55 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,10 @@
 #define FAILURE -1
 #define SUCCESS 0
 
-#define FOREACH_ERROR(ERROR)                                                 \
-    ERROR(ERR_NO_ARG, "usage: ft_ssl command [command opts] [command args]") \
-    ERROR(ERR_INVALID_CMD, "")                                               \
-    ERROR(ERR_ERRNO, "")                                                     \
-    ERROR(ERR_WRONG_FLAG, "")                                                \
-    ERROR(ERR_S_FLAG_NO_ARG,                                                 \
-    "md5: option requires an argument -- s\nusage: md5 [-pqrtx] [-s string] [files ...]")
+#define FOREACH_ERROR(ERROR) \
+    ERROR(ERR_NO_MSG, "")    \
+    ERROR(ERR_ERRNO, "")     \
+    ERROR(ERR_NO_ARG, "usage: ft_ssl command [command opts] [command args]")
 
 #define GENERATE_ENUM(ENUM, STRING) ENUM,
 #define GENERATE_STRING(ENUM, STRING) STRING,
@@ -32,7 +29,7 @@ typedef enum e_ssl_error {
 } t_ssl_error;
 
 int	ft_error(t_ssl_error error);
-char	*ft_strerror(t_ssl_error error);
+int	ft_perror();
 
 extern t_ssl_error g_ft_ssl_error;
 

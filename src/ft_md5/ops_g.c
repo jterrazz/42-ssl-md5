@@ -6,26 +6,28 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:35:31 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:41:17 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:54:38 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int md5_op_g_1(unsigned int i)
+#include <stdlib.h>
+
+uint32_t md5_op_g_1(uint32_t i)
 {
     return (i);
 }
 
-unsigned int md5_op_g_2(unsigned int i)
+uint32_t md5_op_g_2(uint32_t i)
 {
     return ((5 * i + 1) % 16);
 }
 
-unsigned int md5_op_g_3(unsigned int i)
+uint32_t md5_op_g_3(uint32_t i)
 {
     return ((3 * i + 5) % 16);
 }
 
-unsigned int md5_op_g_4(unsigned int i)
+uint32_t md5_op_g_4(uint32_t i)
 {
     return ((7 * i) % 16);
 }

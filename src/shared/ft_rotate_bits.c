@@ -6,16 +6,18 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:16:48 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:38:06 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:50:33 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int ft_rotate_bits_left(unsigned int x, char rotations)
+#include <stdlib.h>
+
+uint32_t ft_rotate_bits_left(uint32_t x, char rotations)
 {
     return ((x << rotations) | (x >> (32 - rotations)));
 }
 
-unsigned int ft_rotate_bits_right(unsigned int x, char rotations)
+uint32_t ft_rotate_bits_right(uint32_t x, char rotations)
 {
     return ((x >> rotations) | (x << (32 - rotations)));
 }

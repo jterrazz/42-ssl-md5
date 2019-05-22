@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 18:30:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:44:53 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:56:09 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ const t_8i_buffer g_md5_default_buffers = {
     0x10325476
 };
 
-const unsigned int g_md5_shifts[64] = {
+const uint32_t g_md5_shifts[64] = {
     7, 12, 17,	22, 7, 12,  17,	 22, 7, 12,  17,  22, 7, 12,  17,  22,
     5, 9,  14,	20, 5, 9,   14,	 20, 5, 9,   14,  20, 5, 9,   14,  20,
     4, 11, 16,	23, 4, 11,  16,	 23, 4, 11,  16,  23, 4, 11,  16,  23,
     6, 10, 15,	21, 6, 10,  15,	 21, 6, 10,  15,  21, 6, 10,  15,  21
 };
 
-const unsigned int g_computed_sines[64] = {
+const uint32_t g_computed_sines[64] = {
     0xd76aa478,
     0xe8c7b756,
     0x242070db,

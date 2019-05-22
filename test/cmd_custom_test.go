@@ -13,12 +13,12 @@ import (
 // "md5 -",
 // "md5 -s",
 // "md5 shared",
+// "md5 - y",
+// "md5 -j",
 func TestCustomCommandsWithFile(t *testing.T) {
 	commands := []string{
 		"md5 -s \"yo\"",
 		"md5 -s \"\"",
-		// "md5 - y",
-		// "md5 -j",
 		"echo \"\" | md5",
 		"echo \"\" | md5 -p",
 		"echo \"yoo\nwwwwww\n\" | md5 -p",

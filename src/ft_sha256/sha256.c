@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 19:34:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:53:03 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void sha256_tranform_buffers(t_8i_buffer internal_buffers,
     t_64i_buffer w_array)
 {
     int			i;
-    unsigned int	temp_a;
-    unsigned int	temp_b;
+    uint32_t	temp_a;
+    uint32_t	temp_b;
 
     i = 0;
     while (i < 64) {

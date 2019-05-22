@@ -18,3 +18,10 @@ https://crypto.stackexchange.com/questions/10829/why-initialize-sha1-with-specif
 Current issues
 // Choose a -ssssss string comportment
 // make && ./a.out md5 -s arg1 -sss arg2 -s arg3
+
+
+
+stdint.h
+For int8_t
+uint8_t
+etc

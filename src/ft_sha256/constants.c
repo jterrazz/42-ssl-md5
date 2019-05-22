@@ -6,11 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:24:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:41:09 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:54:16 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-const unsigned int g_sha256_k[64] = {
+#include <stdlib.h>
+
+const uint32_t g_sha256_k[64] = {
     0x428a2f98, 0x71374491,  0xb5c0fbcf, 0xe9b5dba5,  0x3956c25b, 0x59f111f1,
     0x923f82a4, 0xab1c5ed5,  0xd807aa98, 0x12835b01,  0x243185be, 0x550c7dc3,
     0x72be5d74, 0x80deb1fe,  0x9bdc06a7, 0xc19bf174,  0xe49b69c1, 0xefbe4786,
@@ -24,7 +26,7 @@ const unsigned int g_sha256_k[64] = {
     0x90befffa, 0xa4506ceb,  0xbef9a3f7, 0xc67178f2
 };
 
-const unsigned int g_sha256_default_buffers[8] = {
+const uint32_t g_sha256_default_buffers[8] = {
     0x6a09e667,
     0xbb67ae85,
     0x3c6ef372,

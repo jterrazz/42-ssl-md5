@@ -6,10 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:25 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:36:05 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:29:01 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
 #include "./ft_errno.h"
 #include "./shared/shared.h"
 #include "ft_printf.h"
@@ -20,13 +23,25 @@ char *g_ssl_errors[] = {
     FOREACH_ERROR(GENERATE_STRING)
 };
 
+static char*ft_strerror(t_ssl_error error)
+{
+    return (g_ssl_errors[error]);
+}
+
 int ft_error(t_ssl_error error)
 {
     g_ft_ssl_error = error;
     return (FAILURE);
 }
 
-char*ft_strerror(t_ssl_error error)
+int ft_perror()
 {
-    return (g_ssl_errors[error]);
+    if (g_ft_ssl_error == ERR_NO_MSG) {
+        return (FAILURE);
+    } else if (g_ft_ssl_error == ERR_ERRNO) {
+        ft_printf("%s", strerror(errno));
+    } else {
+        ft_printf("%s\n", ft_strerror(g_ft_ssl_error));
+    }
+    return (FAILURE);
 }

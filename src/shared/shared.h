@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 19:56:07 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:49:38 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,49 @@
 
 #include <stdlib.h>
 
-typedef unsigned int    (*t_ops_1a)(unsigned int x);
-typedef unsigned int    (*t_ops_buffer)(unsigned int *group);
+typedef uint32_t    (*t_ops_1a)(uint32_t x);
+typedef uint32_t    (*t_ops_buffer)(uint32_t *group);
 
 typedef enum { FALSE, TRUE } bool;
 
 typedef union           u_i_buffer {
-    unsigned int	i;
-    unsigned char	c[4];
+    uint32_t	i;
+    uint8_t	c[4];
 }                       t_i_buffer;
 
 typedef union           u_l_buffer {
-    unsigned long	l;
-    unsigned char	c[8];
+    uint64_t	l;
+    uint8_t	c[8];
 }                       t_l_buffer;
 
 // TODO Remove unoin for not used ones and find better name
-typedef unsigned int	t_4i_buffer[4];
-typedef unsigned int	t_8i_buffer[8];
+typedef uint32_t	t_4i_buffer[4];
+typedef uint32_t	t_8i_buffer[8];
 
 typedef union           u_16i_buffer {
-    unsigned int	i[16];
-    unsigned char	c[64];
+    uint32_t	i[16];
+    uint8_t	c[64];
 }                       t_16i_buffer;
 
 typedef union           u_64i_buffer {
-    unsigned int	i[64];
-    unsigned char	c[256];
+    uint32_t	i[64];
+    uint8_t	c[256];
 }                       t_64i_buffer;
 
 uint32_t	invert_uint32(uint32_t x);
-void		ft_buffer_assign_add(unsigned int *dst,
-    const unsigned int *src,
+void		ft_buffer_assign_add(uint32_t *dst,
+    const uint32_t *src,
     size_t length);
-void ft_buffer_copy(unsigned int *dst,
-    const unsigned int *src,
+void ft_buffer_copy(uint32_t *dst,
+    const uint32_t *src,
     size_t length);
 unsigned char*ft_ssl_msg_padding(const char *msg,
     size_t msg_len,
     size_t new_len,
     bool is_little_endian);
 
-unsigned int	ft_rotate_bits_left(unsigned int x, char rotations);
-unsigned int	ft_rotate_bits_right(unsigned int x, char rotations);
+uint32_t	ft_rotate_bits_left(uint32_t x, char rotations);
+uint32_t	ft_rotate_bits_right(uint32_t x, char rotations);
 
 char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter);
 char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter,

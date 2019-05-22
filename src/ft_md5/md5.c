@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:55:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 19:35:02 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:55:58 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void run_md5_byte_ops(int i, t_16i_buffer chunk, t_4i_buffer tmp_buffers)
 
     t_ops_buffer	f;
     t_ops_1a		g;
-    int			f_result;
+    uint32_t		f_result;
 
     g		= ft_g[i / 16];
     f		= ft_f[i / 16];
@@ -40,7 +40,7 @@ static void md5_transform_buffers(unsigned char *padded_msg,
     t_4i_buffer buffers)
 {
     size_t		chunk_i;
-    int			chunk_cursor;
+    size_t			chunk_cursor;
     t_16i_buffer	chunk;
     t_4i_buffer		tmp_buffers;
 
