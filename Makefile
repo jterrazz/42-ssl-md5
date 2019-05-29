@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/05/21 19:46:05 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/05/27 15:06:10 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ $(NAME): $(OBJECTS)
 
 $(PATH_OBJ)/%.o: $(PATH_SRC)/%.c
 	@mkdir -p $(@D)
-	$(CC) $(FLAGS_CC) -c -o $@ $< -I inc
+	$(CC) $(FLAGS_CC) -c -o $@ $< -I $(PATH_INC)
 
 clean:
 	@make clean -C lib/ft_printf
