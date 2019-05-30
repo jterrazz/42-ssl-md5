@@ -6,18 +6,14 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/05/27 15:06:10 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/05/30 16:18:59 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# **************************************************************************** #
-# FILES             														   #
-# **************************************************************************** #
-
-PATH_INC = inc
-PATH_LIB = lib
-PATH_OBJ = obj
-PATH_SRC = src
+INC_PATH = inc
+LIB_PATH = libs
+BUILD_PATH = obj
+SRC_PATH = src
 
 SOURCES += ft_ssl.c ft_errno.c
 SOURCES += cmd/clean.c cmd/constants.c cmd/flag.c cmd/init.c cmd/reader.c \
@@ -28,7 +24,9 @@ SOURCES += ft_sha256/constants.c ft_sha256/ops_bits.c ft_sha256/ops_rotation.c \
 SOURCES += shared/ft_buffer.c shared/ft_hash_builder.c shared/ft_invert_bits.c \
 	shared/ft_msg_padding.c shared/ft_rotate_bits.c shared/ft_uitoa_base.c
 
-OBJECTS = $(SOURCES:%.c=$(PATH_OBJ)/%.o)
+LIB_SOURCES = $(LIB_PATH)/libft/libft.a $(LIB_PATH)/ft_printf/libftprintf.a
+
+OBJECTS = $(SOURCES:%.c=$(BUILD_PATH)/%.o)
 
 # **************************************************************************** #
 # VARIABLES         														   #
@@ -39,9 +37,6 @@ NAME = ft_ssl
 CC = gcc
 
 FLAGS_CC = -Wall -Wextra -Werror
-FLAGS_LCC = -Wall -Wextra -Werror
-
-LIBS = lib/libft/libft.a lib/ft_printf/libftprintf.a
 
 # **************************************************************************** #
 # COMMANDS  		    													   #
@@ -52,26 +47,26 @@ LIBS = lib/libft/libft.a lib/ft_printf/libftprintf.a
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@make -s -C lib/ft_printf
+	@make -s -C $(LIB_PATH)/ft_printf
 	@echo "Make ft_printf \033[33mok\033[0m"
-	@make -s -C lib/libft
+	@make -s -C $(LIB_PATH)/libft
 	@echo "Make libft \033[33mok\033[0m"
-	$(CC) $(FLAGS_LCC) -o $@ $^ $(LIBS)
+	$(CC) $(FLAGS_CC) -o $@ $^ $(LIB_SOURCES)
 	@echo "Compilation successful"
 
-$(PATH_OBJ)/%.o: $(PATH_SRC)/%.c
+$(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir -p $(@D)
-	$(CC) $(FLAGS_CC) -c -o $@ $< -I $(PATH_INC)
+	$(CC) $(FLAGS_CC) -c -o $@ $< -I $(INC_PATH)
 
 clean:
-	@make clean -C lib/ft_printf
-	@make clean -C lib/libft
-	@rm -rf $(PATH_OBJ)
+	@make clean -C $(LIB_PATH)/ft_printf
+	@make clean -C $(LIB_PATH)/libft
+	@rm -rf $(BUILD_PATH)
 	@echo "Clean \033[33mok\033[0m"
 
 fclean: clean
-	@make fclean -C lib/ft_printf
-	@make fclean -C lib/libft
+	@make fclean -C $(LIB_PATH)/ft_printf
+	@make fclean -C $(LIB_PATH)/libft
 	@rm -f $(NAME) $(LIB_NAME)
 	@echo "Fclean \033[33mok\033[0m"
 
