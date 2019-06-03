@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/03 23:27:25 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/03 23:34:51 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian);
 ** Utils
 */
 
-uint64_t	bswap_uint64(uint64_t x);
-uint32_t	bswap_uint32(uint32_t x);
+uint64_t	ft_bswap_uint64(uint64_t x);
+uint32_t	ft_bswap_uint32(uint32_t x);
 
 void ft_uint32_list_assign_add(uint32_t *dst,
     const uint32_t *src,

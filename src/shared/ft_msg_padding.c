@@ -30,7 +30,7 @@ unsigned char*ft_ssl_msg_padding(const char *msg, size_t input_len,
         msg_buffer[cursor++] = 0;
 
     *(uint64_t *)(msg_buffer + cursor - 8) =
-        is_little_endian ? 8 * input_len : bswap_uint64(8 * input_len);
+        is_little_endian ? 8 * input_len : ft_bswap_uint64(8 * input_len);
 
     return (msg_buffer);
 }

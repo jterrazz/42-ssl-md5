@@ -20,7 +20,7 @@ static void init_w_array(t_64_uint32 w_array, unsigned char *msg_buffer)
     i = 0;
     while (i < 64) {
         if (i < 16) {
-            w_array[i] = bswap_uint32(((uint32_t *)msg_buffer)[i]);
+            w_array[i] = ft_bswap_uint32(((uint32_t *)msg_buffer)[i]);
         } else {
             w_array[i] = sha256_op_d(w_array[i - 2]) + w_array[i - 7] +
                             sha256_op_c(w_array[i - 15]) +
