@@ -84,7 +84,7 @@ char*sha256(const char *msg, size_t msg_len)
     t_8_uint32		buffers;
 
     if (!(msg_buffer =
-              ft_ssl_msg_padding(msg, msg_len,
+              build_msg(msg, msg_len,
                   SHA256_CHUNK_COUNT(msg_len) * SHA256_CHUNK_SIZE, FALSE)))
         return (NULL);
 

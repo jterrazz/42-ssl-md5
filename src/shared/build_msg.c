@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_msg_padding.c                                   :+:      :+:    :+:   */
+/*   ft_build_msg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:51:55 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/03 23:19:46 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/03 23:42:39 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../shared/shared.h"
 #include "libft.h"
 
-unsigned char*ft_ssl_msg_padding(const char *msg, size_t input_len,
+unsigned char*build_msg(const char *msg, size_t input_len,
     size_t output_len, bool is_little_endian)
 {
     unsigned char	*msg_buffer;

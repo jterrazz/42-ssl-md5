@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/03 23:34:51 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/03 23:49:07 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,16 @@ typedef uint32_t    (*t_ops_buffer)(uint32_t *group);
 
 typedef enum { FALSE, TRUE } bool;
 
-typedef union           u_i_buffer {
-    uint32_t	i;
-    uint8_t	c[4];
-}                       t_i_buffer;
-
-// Check it still usedfull with bswap
-
-typedef union           u_l_buffer {
-    uint64_t	l;
-    uint8_t	c[8];
-}                       t_l_buffer;
-
-// Check it still usedfull with bswap
-
-typedef union           u_16i_buffer {
-    uint32_t	i[16];
-    uint8_t	c[64];
-}                       t_16i_buffer;
-
-// Check it still usedfull with bswap
-
 typedef uint32_t	t_4_uint32[4];
 typedef uint32_t	t_8_uint32[8];
+typedef uint32_t	t_16_uint32[16];
 typedef uint32_t	t_64_uint32[64];
 
 /*
 ** Common algorithm methods
 */
 
-unsigned char*ft_ssl_msg_padding(const char *msg,
+unsigned char*build_msg(const char *msg,
     size_t input_len,
     size_t output_len,
     bool is_little_endian);
