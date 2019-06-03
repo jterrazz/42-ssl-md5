@@ -31,7 +31,7 @@ static void run_md5_byte_ops(int i, t_16i_buffer chunk, t_4_uint32 tmp_buffers)
     tmp_buffers[0]	= tmp_buffers[3];
     tmp_buffers[3]	= tmp_buffers[2];
     tmp_buffers[2]	= tmp_buffers[1];
-    tmp_buffers[1]	= tmp_buffers[1] + ft_rotate_bits_left(f_result,
+    tmp_buffers[1]	= tmp_buffers[1] + ft_brotate_left(f_result,
         g_md5_shifts[i]);
 }
 
