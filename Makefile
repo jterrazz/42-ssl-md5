@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/05/30 16:18:59 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/06/03 23:21:43 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SOURCES += cmd/clean.c cmd/constants.c cmd/flag.c cmd/init.c cmd/reader.c \
 SOURCES += ft_md5/constants.c ft_md5/md5.c ft_md5/ops_bits.c ft_md5/ops_g.c
 SOURCES += ft_sha256/constants.c ft_sha256/ops_bits.c ft_sha256/ops_rotation.c \
 	ft_sha256/sha256.c
-SOURCES += shared/ft_buffer.c shared/ft_hash_builder.c shared/ft_invert_bits.c \
+SOURCES += shared/ft_buffer.c shared/ft_hash_builder.c shared/ft_bswap.c \
 	shared/ft_msg_padding.c shared/ft_rotate_bits.c shared/ft_uitoa_base.c
 
 LIB_SOURCES = $(LIB_PATH)/libft/libft.a $(LIB_PATH)/ft_printf/libftprintf.a

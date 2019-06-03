@@ -6,58 +6,31 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:51:55 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:59:00 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/03 23:19:46 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../shared/shared.h"
 #include "libft.h"
 
-static void add_little_endian_size(unsigned char *start, size_t byte_size)
+unsigned char*ft_ssl_msg_padding(const char *msg, size_t input_len,
+    size_t output_len, bool is_little_endian)
 {
-    t_l_buffer l_buffer;
-
-    l_buffer.l = 8 * byte_size;
-    ft_memcpy(start, l_buffer.c, 8);
-}
-
-static void add_big_endian_size(unsigned char *start, size_t byte_size)
-{
-    int		i;
-    t_l_buffer	l_buffer;
-
-    i		= 0;
-    l_buffer.l	= 8 * byte_size;
-
-    while (i < 8) {
-        start[i] = l_buffer.c[7 - i];
-        i++;
-    }
-}
-
-unsigned char*ft_ssl_msg_padding(const char *msg,
-    size_t msg_len,
-    size_t new_len,
-    bool is_little_endian)
-{
-    size_t		cursor;
     unsigned char	*msg_buffer;
+    size_t		    cursor;
 
-    if (!(msg_buffer = malloc(new_len)))
+    if (!(msg_buffer = malloc(output_len)))
         return (NULL);
 
-    ft_memcpy(msg_buffer, msg, msg_len);
-    msg_buffer[msg_len] = 0b10000000;
-    cursor		= msg_len + 1;
+    ft_memcpy(msg_buffer, msg, input_len);
+    msg_buffer[input_len] = 0b10000000;
+    cursor		= input_len + 1;
 
-    while (cursor < new_len)
+    while (cursor < output_len)
         msg_buffer[cursor++] = 0;
 
-    if (is_little_endian) {
-        add_little_endian_size(msg_buffer + cursor - 8, msg_len);
-    } else {
-        add_big_endian_size(msg_buffer + cursor - 8, msg_len);
-    }
+    *(uint64_t *)(msg_buffer + cursor - 8) =
+        is_little_endian ? 8 * input_len : bswap_uint64(8 * input_len);
 
     return (msg_buffer);
 }

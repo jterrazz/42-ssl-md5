@@ -47,17 +47,17 @@ static void md5_transform_buffers(unsigned char *padded_msg,
     chunk_i		= 0;
     chunk_cursor	= 0;
 
-    ft_buffer_copy(buffers, g_md5_default_buffers, 4);
+    ft_uint32_list_cpy(buffers, g_md5_default_buffers, 4);
 
     while (chunk_i < MD5_CHUNK_COUNT(msg_len)) {
         ft_memcpy(chunk.c, padded_msg + chunk_i * MD5_CHUNK_SIZE,
             MD5_CHUNK_SIZE);
         chunk_cursor = 0;
 
-        ft_buffer_copy(tmp_buffers, buffers, 4);
+        ft_uint32_list_cpy(tmp_buffers, buffers, 4);
         while (chunk_cursor < 64)
             run_md5_byte_ops(chunk_cursor++, chunk, tmp_buffers);
-        ft_buffer_assign_add(buffers, tmp_buffers, 4);
+        ft_uint32_list_assign_add(buffers, tmp_buffers, 4);
         chunk_i++;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 18:12:03 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/03 23:13:59 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void init_w_array(t_64_uint32 w_array, unsigned char *msg_buffer)
     i = 0;
     while (i < 64) {
         if (i < 16) {
-            w_array[i] = invert_uint32(((uint32_t *)msg_buffer)[i]);
+            w_array[i] = bswap_uint32(((uint32_t *)msg_buffer)[i]);
         } else {
             w_array[i] = sha256_op_d(w_array[i - 2]) + w_array[i - 7] +
                             sha256_op_c(w_array[i - 15]) +
@@ -71,9 +71,9 @@ static void sha256_run_ops(t_8_uint32 buffers,
 
     while (chunk_i < SHA256_CHUNK_COUNT(msg_len)) {
         init_w_array(w_array, msg_buffer += chunk_i * SHA256_CHUNK_SIZE);
-        ft_buffer_copy(internal_buffers, buffers, 8);
+        ft_uint32_list_cpy(internal_buffers, buffers, 8);
         sha256_tranform_buffers(internal_buffers, w_array);
-        ft_buffer_assign_add(buffers, internal_buffers, 8);
+        ft_uint32_list_assign_add(buffers, internal_buffers, 8);
         chunk_i++;
     }
 }
@@ -88,7 +88,7 @@ char*sha256(const char *msg, size_t msg_len)
                   SHA256_CHUNK_COUNT(msg_len) * SHA256_CHUNK_SIZE, FALSE)))
         return (NULL);
 
-    ft_buffer_copy(buffers, g_sha256_default_buffers, 8);
+    ft_uint32_list_cpy(buffers, g_sha256_default_buffers, 8);
     sha256_run_ops(buffers, msg_buffer, msg_len);
     free(msg_buffer);
 
