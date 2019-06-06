@@ -6,20 +6,21 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:55:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/03 23:49:32 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/04 00:02:11 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./md5.h"
 #include "libft.h"
 
+static const t_ops_buffer ft_f[4] =
+{ &md5_op_shift_1, &md5_op_shift_2, &md5_op_shift_3, &md5_op_shift_4 };
+
+static const t_ops_1a ft_g[4] =
+{ &md5_op_g_1, &md5_op_g_2, &md5_op_g_3, &md5_op_g_4 };
+
 static void run_md5_byte_ops(int i, t_16_uint32 chunk, t_4_uint32 tmp_buffers)
 {
-    static t_ops_buffer ft_f[4] =
-    { &md5_op_shift_1, &md5_op_shift_2, &md5_op_shift_3, &md5_op_shift_4 };
-    static t_ops_1a ft_g[4] =
-    { &md5_op_g_1, &md5_op_g_2, &md5_op_g_3, &md5_op_g_4 };
-
     t_ops_buffer	f;
     t_ops_1a		g;
     uint32_t		f_result;
