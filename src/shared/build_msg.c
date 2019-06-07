@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_build_msg.c                                     :+:      :+:    :+:   */
+/*   build_msg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:51:55 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/03 23:42:39 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/07 11:11:58 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../shared/shared.h"
 #include "libft.h"
 
-unsigned char*build_msg(const char *msg, size_t input_len,
-    size_t output_len, bool is_little_endian)
+unsigned char*build_msg(const char *msg, size_t msg_len,
+    size_t formatted_msg_len, bool is_little_endian)
 {
-    unsigned char	*msg_buffer;
+    unsigned char	*formatted_msg;
     size_t		    cursor;
 
-    if (!(msg_buffer = malloc(output_len)))
+    if (!(formatted_msg = malloc(formatted_msg_len)))
         return (NULL);
 
-    ft_memcpy(msg_buffer, msg, input_len);
-    msg_buffer[input_len] = 0b10000000;
-    cursor		= input_len + 1;
+    ft_memcpy(formatted_msg, msg, msg_len);
+    formatted_msg[msg_len] = 0b10000000;
+    cursor		= msg_len + 1;
 
-    while (cursor < output_len)
-        msg_buffer[cursor++] = 0;
+    while (cursor < formatted_msg_len)
+        formatted_msg[cursor++] = 0;
 
-    *(uint64_t *)(msg_buffer + cursor - 8) =
-        is_little_endian ? 8 * input_len : ft_bswap_uint64(8 * input_len);
+    *(uint64_t *)(formatted_msg + cursor - 8) =
+        is_little_endian ? 8 * msg_len : ft_bswap_uint64(8 * msg_len);
 
-    return (msg_buffer);
+    return (formatted_msg);
 }

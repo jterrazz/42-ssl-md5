@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 18:08:09 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/07 15:34:59 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ extern const uint32_t	g_sha256_default_buffers[8];
 ** Prototypes
 */
 
-char*sha256(const char *msg, size_t msg_len);
+char*ft_sha256(const char *msg, size_t msg_len);
 
 /*
 ** Operations

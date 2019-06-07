@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/03 23:49:07 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/07 11:12:53 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ typedef uint32_t	t_64_uint32[64];
 ** Common algorithm methods
 */
 
-unsigned char*build_msg(const char *msg,
-    size_t input_len,
-    size_t output_len,
-    bool is_little_endian);
+unsigned char*build_msg(const char *msg, size_t msg_len,
+    size_t formatted_msg_len, bool is_little_endian);
 
 char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian);
 

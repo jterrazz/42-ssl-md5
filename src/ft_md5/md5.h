@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 18:08:01 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/06/07 15:35:46 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ extern const t_4_uint32 g_md5_default_buffers;
 ** Prototypes
 */
 
-char*md5(const char *msg, size_t msg_len);
+char*ft_md5(const char *msg, size_t msg_len);
 
 /*
 ** Operations
