@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-void ft_uint32_list_assign_add(uint32_t *dst, const uint32_t *src, size_t len)
+void ft_uint32_arr_assign_add(uint32_t *dst, const uint32_t *src, size_t len)
 {
     size_t i = 0;
 
@@ -22,7 +22,7 @@ void ft_uint32_list_assign_add(uint32_t *dst, const uint32_t *src, size_t len)
     }
 }
 
-void ft_uint32_list_cpy(uint32_t *dst, const uint32_t *src, size_t len)
+void ft_uint32_arr_cpy(uint32_t *dst, const uint32_t *src, size_t len)
 {
     size_t i = 0;
 

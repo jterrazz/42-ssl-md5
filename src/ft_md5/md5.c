@@ -48,17 +48,17 @@ static void md5_run_ops(unsigned char *padded_msg,
     chunk_i		= 0;
     chunk_cursor	= 0;
 
-    ft_uint32_list_cpy(buffers, g_md5_default_buffers, 4);
+    ft_uint32_arr_cpy(buffers, g_md5_default_buffers, 4);
 
     while (chunk_i < MD5_CHUNK_COUNT(msg_len)) {
         ft_memcpy(chunk, padded_msg + chunk_i * MD5_CHUNK_SIZE,
             MD5_CHUNK_SIZE);
         chunk_cursor = 0;
 
-        ft_uint32_list_cpy(tmp_buffers, buffers, 4);
+        ft_uint32_arr_cpy(tmp_buffers, buffers, 4);
         while (chunk_cursor < 64)
             md5_shuffle_buffers(chunk_cursor++, chunk, tmp_buffers);
-        ft_uint32_list_assign_add(buffers, tmp_buffers, 4);
+        ft_uint32_arr_assign_add(buffers, tmp_buffers, 4);
         chunk_i++;
     }
 }

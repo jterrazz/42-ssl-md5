@@ -41,10 +41,10 @@ char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian);
 uint64_t	ft_bswap_uint64(uint64_t x);
 uint32_t	ft_bswap_uint32(uint32_t x);
 
-void ft_uint32_list_assign_add(uint32_t *dst,
+void ft_uint32_arr_assign_add(uint32_t *dst,
     const uint32_t *src,
     size_t len);
-void ft_uint32_list_cpy(uint32_t *dst,
+void ft_uint32_arr_cpy(uint32_t *dst,
     const uint32_t *src,
     size_t len);
 
