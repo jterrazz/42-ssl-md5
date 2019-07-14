@@ -6,12 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 12:16:01 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 15:54:06 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 #define UTILS_H
+
+// complete the usage
 
 #include <stdlib.h>
 
@@ -35,6 +37,7 @@ unsigned char*build_msg(const char *msg, size_t msg_len,
     size_t formatted_msg_len, bool is_little_endian);
 
 char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian);
+char*build_hash_64(uint64_t *buffers, size_t buffer_count, bool is_little_endian);
 
 /*
 ** Utils
@@ -50,6 +53,7 @@ void ft_uint64_arr_cpy(uint64_t *dst, const uint64_t *src, size_t len);
 
 uint32_t	ft_brotate_left(uint32_t x, char rotations);
 uint32_t	ft_brotate_right(uint32_t x, char rotations);
+uint64_t ft_brotate_right_64(uint64_t x, char rotations);
 
 char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter);
 char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter,

@@ -6,13 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 16:50:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/20 18:37:55 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 15:49:17 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
+// Try priting the min value
 char*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter)
 {
     uintmax_t	temp;

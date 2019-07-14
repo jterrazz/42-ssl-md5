@@ -6,12 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 12:19:44 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 15:55:06 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha512.h"
 #include "libft.h"
+#include <stdio.h> //del
 
 // If generic, add uin64 param and resolve the w_array uint32/64 issue;
 static void init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
@@ -42,11 +43,11 @@ static void sha512_shuffle_buffers(t_8_uint64 buffers,
     i = 0;
     while (i < 80) {
         temp_a = buffers[7] + sha512_op_b(
-            buffers[4]) + sha256_op_ch(buffers[4], // Replace ft by generic sha name
+            buffers[4]) + sha512_op_ch(buffers[4], // Replace ft by generic sha name
             buffers[5],
             buffers[6]) + g_sha512_k[i] + w_array[i];
         temp_b = sha512_op_a(buffers[0]) +
-                 sha256_op_maj(buffers[0],
+                 sha512_op_maj(buffers[0],
             buffers[1],
             buffers[2]);
         buffers[7]	= buffers[6];
@@ -94,5 +95,5 @@ char*ft_sha512(const char *msg, size_t msg_len)
     sha512_run_ops(buffers, formatted_msg, msg_len);
     free(formatted_msg);
 
-    return (build_hash((uint32_t *) buffers, 16, FALSE));
+    return (build_hash_64(buffers, 8, FALSE)); // replace 16 and 8 by MACROS
 }
