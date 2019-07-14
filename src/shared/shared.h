@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/07 11:12:53 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 12:16:01 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ typedef enum { FALSE, TRUE } bool;
 
 typedef uint32_t	t_4_uint32[4];
 typedef uint32_t	t_8_uint32[8];
+typedef uint64_t	t_8_uint64[8];
 typedef uint32_t	t_16_uint32[16];
 typedef uint32_t	t_64_uint32[64];
+typedef uint64_t	t_80_uint64[80];
 
 /*
 ** Common algorithm methods
@@ -41,12 +43,10 @@ char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian);
 uint64_t	ft_bswap_uint64(uint64_t x);
 uint32_t	ft_bswap_uint32(uint32_t x);
 
-void ft_uint32_arr_assign_add(uint32_t *dst,
-    const uint32_t *src,
-    size_t len);
-void ft_uint32_arr_cpy(uint32_t *dst,
-    const uint32_t *src,
-    size_t len);
+void ft_uint32_arr_assign_add(uint32_t *dst, const uint32_t *src, size_t len);
+void ft_uint32_arr_cpy(uint32_t *dst, const uint32_t *src, size_t len);
+void ft_uint64_arr_assign_add(uint64_t *dst, const uint64_t *src, size_t len);
+void ft_uint64_arr_cpy(uint64_t *dst, const uint64_t *src, size_t len);
 
 uint32_t	ft_brotate_left(uint32_t x, char rotations);
 uint32_t	ft_brotate_right(uint32_t x, char rotations);

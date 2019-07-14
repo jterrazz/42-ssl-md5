@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:37:27 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 11:38:20 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:54:57 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 uint64_t sha512_op_a(uint64_t x)
 {
-    return (ft_brotate_right(x,
-        2) ^ ft_brotate_right(x, 13) ^ ft_brotate_right(x, 22));
+    return (ft_brotate_right(x, 28) ^ ft_brotate_right(x, 34) ^ ft_brotate_right(x, 39));
+}
+
+uint64_t sha512_op_b(uint64_t x)
+{
+    return (ft_brotate_right(x, 14) ^ ft_brotate_right(x, 18) ^ ft_brotate_right(x, 41));
+}
+
+uint64_t sha512_op_c(uint64_t x)
+{
+    return (ft_brotate_right(x, 1) ^ ft_brotate_right(x, 8) ^ x >> 7);
+}
+
+uint64_t sha512_op_d(uint64_t x)
+{
+    return (ft_brotate_right(x, 19) ^ ft_brotate_right(x, 61) ^ x >> 6);
 }

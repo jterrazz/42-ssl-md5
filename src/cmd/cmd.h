@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 13:03:38 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:15:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:51:11 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ typedef struct      s_flag {
     t_flag_handler	handler;
     int			arg_count;
 }                   t_flag;
-
-
 
 /*
 ** Globals

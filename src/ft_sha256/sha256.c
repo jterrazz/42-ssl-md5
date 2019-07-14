@@ -6,13 +6,15 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/16 23:24:28 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:58:15 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha256.h"
 #include "libft.h"
 
+// set number of round in macro
+// Replace all these by generic function for sha512
 static void init_w_array(t_64_uint32 w_array, unsigned char *formatted_msg)
 {
     int i;
