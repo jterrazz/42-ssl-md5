@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sha384.h                                           :+:      :+:    :+:   */
+/*   constants.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/14 11:25:41 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 16:22:34 by jterrazz         ###   ########.fr       */
+/*   Created: 2019/05/06 11:24:07 by jterrazz          #+#    #+#             */
+/*   Updated: 2019/07/14 16:27:10 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHA384_H
-#define SHA384_H
+#include <stdlib.h>
 
-#include "../shared/shared.h"
-#include "../ft_sha512/sha512.h"
-
-/*
-** Globals
-*/
-
-extern const uint64_t	g_sha384_default_buffers[8];
-
-/*
-** Prototypes
-*/
-
-char *ft_sha384(const char *msg, size_t msg_len);
-
-#endif
+const uint32_t g_sha224_default_buffers[8] = {
+    0xC1059ED8,
+	0x367CD507,
+	0x3070DD17,
+	0xF70E5939,
+	0xFFC00B31,
+	0x68581511,
+	0x64F98FA7,
+	0xBEFA4FA4,
+};

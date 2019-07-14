@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 16:14:44 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/14 16:30:20 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ char*ft_sha384(const char *msg, size_t msg_len)
     sha512_run_ops(buffers, formatted_msg, msg_len);
     free(formatted_msg);
 
-    hash = build_hash_64(buffers, 8, FALSE);
+    if (!(hash = build_hash_64(buffers, 8, FALSE)))
+        return NULL;
     // Replace macro 384 / 8
     if (!(cropped_hash = malloc(sizeof(char) * 48 * 2 + 1)))
         return (NULL);
