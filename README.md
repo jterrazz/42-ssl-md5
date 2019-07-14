@@ -19,11 +19,14 @@ make fclean # Clean all built files
 ### Usage
 
 ``` bash
-usage: ft_ssl command [command opts] [command args]
+usage: ft_ssl command [command opts]
 
+# command: md5, sha256
 # command opts:
-# md5
-# sha256
+	# -p: echo STDIN to STDOUT and append the checksum to STDOUT
+	# -q: quiet mode
+	# -r: reverse the format of the output.
+	# -s <string>: print the sum of the given string
 ```
 
 ### Testing
