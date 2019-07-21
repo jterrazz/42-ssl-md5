@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 15:54:06 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:03:58 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define UTILS_H
 
 // complete the usage
+#define DEC(x) (x - 1)
 
 #include <stdlib.h>
 

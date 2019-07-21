@@ -6,20 +6,19 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:25:41 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 15:29:05 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:15:59 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA512_H
 #define SHA512_H
 
-#define SHA512_CHUNK_SIZE 128
-#define SHA512_CHUNK_COUNT_FILLED(msg_len) ((msg_len + 1 + 8) / SHA512_CHUNK_SIZE)
-#define SHA512_CHUNK_COUNT_PARTIAL(msg_len) ((msg_len + 1 + 8) % SHA512_CHUNK_SIZE)
-#define SHA512_CHUNK_COUNT(msg_len) (SHA512_CHUNK_COUNT_FILLED(msg_len) + (SHA512_CHUNK_COUNT_PARTIAL(msg_len) ? 1 : 0))
-
 #include "../shared/shared.h"
-#include "../ft_sha256/sha256.h" // Replace by sha
+#include "../ft_sha256/sha256.h"
+
+#define SHA512_CHUNK_SIZE 128
+#define SHA512_CHUNKS_SIZE(len) ((len + 1 + 8 + DEC(SHA512_CHUNK_SIZE)) & ~DEC(SHA512_CHUNK_SIZE))
+#define SHA512_CHUNK_COUNT(len) (SHA512_CHUNKS_SIZE(len) / SHA512_CHUNK_SIZE)
 
 /*
 ** Globals

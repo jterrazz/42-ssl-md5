@@ -6,20 +6,18 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/07 15:35:46 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:16:05 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MD5_H
 #define MD5_H
 
-#define MD5_CHUNK_SIZE 64
-#define MD5_CHUNK_COUNT_FILLED(msg_len) ((msg_len + 1 + 8) / MD5_CHUNK_SIZE)
-#define MD5_CHUNK_COUNT_PARTIAL(msg_len) ((msg_len + 1 + 8) % MD5_CHUNK_SIZE)
-#define MD5_CHUNK_COUNT(msg_len) (MD5_CHUNK_COUNT_FILLED(msg_len) + \
-                                  (MD5_CHUNK_COUNT_PARTIAL(msg_len) ? 1 : 0))
-
 #include "../shared/shared.h"
+
+#define MD5_CHUNK_SIZE 64
+#define MD5_CHUNKS_SIZE(len) ((len + 1 + 8 + DEC(MD5_CHUNK_SIZE)) & ~DEC(MD5_CHUNK_SIZE))
+#define MD5_CHUNK_COUNT(len) (MD5_CHUNKS_SIZE(len) / MD5_CHUNK_SIZE)
 
 /*
 ** Globals

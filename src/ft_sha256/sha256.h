@@ -6,23 +6,18 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/06/07 15:34:59 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:15:14 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA256_H
 #define SHA256_H
 
-#define SHA256_CHUNK_SIZE 64
-#define SHA256_CHUNK_COUNT_FILLED(msg_len) ((msg_len + 1 + 8) / \
-                                            SHA256_CHUNK_SIZE)
-#define SHA256_CHUNK_COUNT_PARTIAL(msg_len) ((msg_len + 1 + 8) % \
-                                             SHA256_CHUNK_SIZE)
-#define SHA256_CHUNK_COUNT(msg_len) (SHA256_CHUNK_COUNT_FILLED(msg_len) +       \
-                                     (SHA256_CHUNK_COUNT_PARTIAL(msg_len) ? 1 : \
-                                      0))
-
 #include "../shared/shared.h"
+
+#define SHA256_CHUNK_SIZE 64
+#define SHA256_CHUNKS_SIZE(len) ((len + 1 + 8 + DEC(SHA256_CHUNK_SIZE)) & ~DEC(SHA256_CHUNK_SIZE))
+#define SHA256_CHUNK_COUNT(len) (SHA256_CHUNKS_SIZE(len) / SHA256_CHUNK_SIZE)
 
 /*
 ** Globals
