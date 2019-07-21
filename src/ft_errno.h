@@ -6,12 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:23 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:28:55 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:29:30 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 #define ERROR_H
+
+#include "./shared/shared.h"
 
 #define FAILURE -1
 #define SUCCESS 0

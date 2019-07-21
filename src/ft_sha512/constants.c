@@ -6,11 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:29:05 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 11:55:50 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:26:16 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "./sha512.h"
 
 // Replace all Fixed length with a Macro ?
 

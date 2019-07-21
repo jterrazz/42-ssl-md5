@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:03:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:30:58 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 // complete the usage
 #define DEC(x) (x - 1)
 
+#include "ft_printf.h"
+#include "libft.h"
+#include <fcntl.h> // For open
 #include <stdlib.h>
+#include <errno.h>
+#include "../ft_errno.h"
 
 typedef uint32_t    (*t_ops_1a)(uint32_t x);
 typedef uint32_t    (*t_ops_buffer)(uint32_t *group);
@@ -57,7 +62,6 @@ uint32_t	ft_brotate_right(uint32_t x, char rotations);
 uint64_t ft_brotate_right_64(uint64_t x, char rotations);
 
 char	*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter);
-char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter,
-    size_t len);
+char	*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter, size_t len);
 
 #endif

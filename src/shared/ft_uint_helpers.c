@@ -6,11 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:27:48 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:08:16 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:27:03 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "./shared.h"
 
 void ft_uint32_arr_assign_add(uint32_t *dst, const uint32_t *src, size_t len)
 {

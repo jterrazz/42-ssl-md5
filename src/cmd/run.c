@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_run.c                                          :+:      :+:    :+:   */
+/*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 15:59:39 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/21 19:31:13 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:23:11 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd.h"
-#include "ft_printf.h"
-#include "libft.h"
-#include <errno.h>
 
 static int print_ssl_pipe(const t_cmd cmd, const t_cmd_state *state)
 {

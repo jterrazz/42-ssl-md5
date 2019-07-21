@@ -6,12 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 16:50:44 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 15:49:17 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:31:54 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "./shared.h"
 
 // Try priting the min value
 char*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter)
@@ -38,7 +37,7 @@ char*ft_uitoa_base(uintmax_t nb, intmax_t base, char letter)
     return (str);
 }
 
-char*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter, int len)
+char*ft_uitoa_base_len(uintmax_t nb, intmax_t base, char letter, size_t len)
 {
     int		i;
     int		diff;

@@ -6,12 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:39:14 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:07:39 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:26:37 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./shared.h"
-#include "libft.h"
 
 char*build_hash(uint32_t *buffers, size_t buffer_count, bool is_little_endian)
 {

@@ -6,12 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:51:55 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:07:45 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:26:46 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../shared/shared.h"
-#include "libft.h"
+#include "./shared.h"
 
 unsigned char*build_msg(const char *msg, size_t msg_len,
     size_t formatted_msg_len, bool is_little_endian)

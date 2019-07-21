@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:25:41 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:15:59 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:30:08 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** Globals
 */
 
-extern const uint64_t	g_sha512_k[64];
+extern const uint64_t	g_sha512_k[80];
 extern const uint64_t	g_sha512_default_buffers[8];
 
 /*

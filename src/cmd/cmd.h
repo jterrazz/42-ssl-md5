@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 13:03:38 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 11:51:11 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:27:28 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 #define CMD_BUFF_SIZE 1000
 
-#include "../ft_errno.h"
 #include "../shared/shared.h"
+#include "../ft_md5/md5.h"
+#include "../ft_sha256/sha256.h"
+#include "../ft_sha512/sha512.h"
+#include "../ft_sha384/sha384.h"
+#include "../ft_sha224/sha224.h"
 
 typedef struct      s_file {
     char	*data;

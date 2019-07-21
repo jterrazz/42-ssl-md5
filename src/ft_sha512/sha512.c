@@ -6,13 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/14 15:55:06 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:26:28 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha512.h"
-#include "libft.h"
-#include <stdio.h> //del
 
 // If generic, add uin64 param and resolve the w_array uint32/64 issue;
 static void init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)

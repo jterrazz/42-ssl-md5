@@ -6,11 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:24:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:54:16 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:25:23 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "./sha256.h"
 
 const uint32_t g_sha256_k[64] = {
     0x428a2f98, 0x71374491,  0xb5c0fbcf, 0xe9b5dba5,  0x3956c25b, 0x59f111f1,

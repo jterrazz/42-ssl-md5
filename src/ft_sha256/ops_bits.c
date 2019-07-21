@@ -6,11 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:27:38 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:53:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:25:32 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "./sha256.h"
 
 uint32_t sha256_op_ch(uint32_t x, uint32_t y, uint32_t z)
 {

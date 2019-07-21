@@ -6,13 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:13:36 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:22:25 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd.h"
-#include "libft.h"
-#include <stdlib.h>
 
 static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 {

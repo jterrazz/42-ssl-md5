@@ -6,16 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:25 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:29:01 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:29:05 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <errno.h>
-#include <string.h>
 #include "./ft_errno.h"
-#include "./shared/shared.h"
-#include "ft_printf.h"
 
 t_ssl_error g_ft_ssl_error;
 
