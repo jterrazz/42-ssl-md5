@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/07/14 16:22:59 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/07/21 21:41:02 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIB_PATH = libs
 BUILD_PATH = obj
 SRC_PATH = src
 
-SOURCES += ft_ssl.c ft_errno.c
+SOURCES += ft_ssl.c shared/ft_errno.c
 SOURCES += cmd/clean.c cmd/constants.c cmd/flag.c cmd/init.c cmd/reader.c \
 	cmd/run.c
 SOURCES += ft_md5/constants.c ft_md5/md5.c ft_md5/ops_bits.c ft_md5/ops_g.c

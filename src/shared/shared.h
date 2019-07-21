@@ -6,22 +6,21 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:35:32 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:41:21 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 #define UTILS_H
 
-// complete the usage
 #define DEC(x) (x - 1)
 
-#include "ft_printf.h"
-#include "libft.h"
 #include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "../ft_errno.h"
+#include "ft_printf.h"
+#include "libft.h"
+#include "./ft_errno.h"
 
 typedef uint32_t    (*t_ops_1a)(uint32_t x);
 typedef uint32_t    (*t_ops_buffer)(uint32_t *group);
