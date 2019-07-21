@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:30:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:35:32 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
-#include <fcntl.h> // For open
+#include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
 #include "../ft_errno.h"

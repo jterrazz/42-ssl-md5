@@ -6,15 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/05/22 17:58:12 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/21 21:38:37 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd/cmd.h"
-#include "./ft_errno.h"
-#include "ft_printf.h"
-#include "libft.h"
-#include <stdlib.h>
 
 static int ft_ssl(int argc, char **argv)
 {
@@ -37,7 +33,7 @@ static int ft_ssl(int argc, char **argv)
     }
 
     ft_printf(
-        "ft_ssl: Error: '%s' is an invalid command.\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha256\n\nCipher commands:\n",
+        "ft_ssl: Error: '%s' is an invalid command.\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha224\nsha256\nsha384\nsha512\n\nCipher commands:\n",
         argv[1]);
     return (ft_error(ERR_NO_MSG));
 }
