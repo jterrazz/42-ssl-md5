@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/26 00:11:35 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:50:48 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // 2 more bonus and puts bonus in little tests
 
 #define DEC(x) (x - 1)
+#define BYTE_TO_B(x) (x / 8)
 
 #include <fcntl.h>
 #include <stdlib.h>

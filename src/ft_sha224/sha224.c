@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/26 00:44:54 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:54:14 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char*ft_sha224(const char *msg, size_t msg_len)
 
     if (!(hash = build_hash(buffers, 8, FALSE)))
         return NULL;
-    if (!(cropped_hash = malloc(sizeof(char) * 224 / 8 * 2 + 1))) // amcro
+    if (!(cropped_hash = ft_strnew(BYTE_TO_B(224) * 2))) // amcro
         return NULL;
-    ft_strncpy(cropped_hash, hash, 224 / 8 * 2 );
+    ft_strncpy(cropped_hash, hash, BYTE_TO_B(224) * 2);
     free(hash);
     return (cropped_hash);
 }

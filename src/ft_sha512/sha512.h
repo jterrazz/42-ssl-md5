@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:25:41 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:30:08 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:46:56 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ extern const uint64_t	g_sha512_default_buffers[8];
 */
 
 char *ft_sha512(const char *msg, size_t msg_len);
+
+void sha512_init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg);
+void sha512_shuffle_buffers(t_8_uint64 buffers, t_80_uint64 w_array);
+void sha512_run_ops(t_8_uint64 buffers, unsigned char *formatted_msg, size_t msg_len);
+
 
 /*
 ** Operations

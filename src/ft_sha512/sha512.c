@@ -6,14 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:26:28 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:47:01 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha512.h"
 
 // If generic, add uin64 param and resolve the w_array uint32/64 issue;
-static void init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
+void sha512_init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
 {
     int i;
 
@@ -31,8 +31,7 @@ static void init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
     }
 }
 
-static void sha512_shuffle_buffers(t_8_uint64 buffers,
-    t_80_uint64 w_array)
+void sha512_shuffle_buffers(t_8_uint64 buffers, t_80_uint64 w_array)
 {
     int			i;
     uint64_t	temp_a;
@@ -60,9 +59,7 @@ static void sha512_shuffle_buffers(t_8_uint64 buffers,
     }
 }
 
-static void sha512_run_ops(t_8_uint64 buffers,
-    unsigned char *formatted_msg,
-    size_t msg_len)
+void sha512_run_ops(t_8_uint64 buffers, unsigned char *formatted_msg, size_t msg_len)
 {
     size_t		chunk_i;
     t_80_uint64	w_array;
@@ -71,7 +68,7 @@ static void sha512_run_ops(t_8_uint64 buffers,
     chunk_i = 0;
 
     while (chunk_i < SHA512_CHUNK_COUNT(msg_len)) {
-        init_w_array(w_array, formatted_msg + chunk_i * SHA512_CHUNK_SIZE);
+        sha512_init_w_array(w_array, formatted_msg + chunk_i * SHA512_CHUNK_SIZE);
         ft_uint64_arr_cpy(internal_buffers, buffers, 8);
         sha512_shuffle_buffers(internal_buffers, w_array);
         ft_uint64_arr_assign_add(buffers, internal_buffers, 8);
