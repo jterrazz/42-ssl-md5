@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/25 18:40:58 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:11:35 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef uint32_t	t_8_uint32[8];
 typedef uint64_t	t_8_uint64[8];
 typedef uint32_t	t_16_uint32[16];
 typedef uint32_t	t_64_uint32[64];
+typedef uint64_t	t_80_uint32[80];
 typedef uint64_t	t_80_uint64[80];
 
 /*

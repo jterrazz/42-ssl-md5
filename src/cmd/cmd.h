@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 13:03:38 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/25 23:03:13 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:35:43 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include "../ft_sha512/sha512.h"
 #include "../ft_sha384/sha384.h"
 #include "../ft_sha224/sha224.h"
+#include "../ft_sha1/sha1.h"
 
 typedef struct      s_file {
     char	*data;
