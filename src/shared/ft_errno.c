@@ -6,13 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:25 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:29:05 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/25 21:05:19 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_errno.h"
 
-t_ssl_error g_ft_ssl_error;
+// remove from extern ?
+t_ssl_error g_ft_ssl_error; // ???
 
 char *g_ssl_errors[] = {
     FOREACH_ERROR(GENERATE_STRING)

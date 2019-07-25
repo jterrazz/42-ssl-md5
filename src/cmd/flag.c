@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:34:20 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:21:27 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/25 23:03:10 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,33 @@
 int cmd_flag_s_handler(t_cmd_state *state, int argc_i)
 {
     char **old_s_argv;
-    if (argc_i + 1 >= state->argc) {
+    if (argc_i + 1 >= state->argc)
+    {
         if (state->cmd)
-            ft_printf("%s: option requires an argument -- s\n%s\n",
-                state->cmd->cmd,
-                state->cmd->usage);
+            ft_printf("%s: option requires an argument -- s\n%s\n", state->cmd->cmd, state->cmd->usage);
         return (ft_error(ERR_NO_MSG));
     }
 
     old_s_argv = state->s_argv;
-    if (!(state->s_argv = malloc((state->s_argc + 1) * sizeof(char *)))) {
+    if (!(state->s_argv = malloc((state->s_argc + 1) * sizeof(char *))))
         return (ft_error(ERR_ERRNO));
-    }
     ft_memmove(state->s_argv, old_s_argv, state->s_argc * sizeof(char *));
     free(old_s_argv);
-    state->s_argv[state->s_argc]	= state->argv[argc_i + 1];
-    state->s_argc			+= 1;
-
+    state->s_argv[state->s_argc] = state->argv[argc_i + 1];
+    state->s_argc += 1;
     return (SUCCESS);
 }
 
 void cmd_activate_flag(t_cmd_state *state, char flag)
 {
-    if (flag == 'p') {
+    if (flag == 'p')
         state->p = TRUE;
-    } else if (flag == 'q') {
+    else if (flag == 'q')
         state->q = TRUE;
-    } else if (flag == 'r') {
+    else if (flag == 'r')
         state->r = TRUE;
-    } else if (flag == 's') {
+    else if (flag == 's')
         state->s = TRUE;
-    }
 }
 
 t_flag*cmd_get_flag_obj(t_cmd_state *state, char flag)

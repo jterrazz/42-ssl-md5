@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:23 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:40:43 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/25 20:52:42 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #define FAILURE -1
 #define SUCCESS 0
 
-// Explain this
+// Don;t use globals for that
 #define FOREACH_ERROR(ERROR) \
     ERROR(ERR_NO_MSG, "")    \
     ERROR(ERR_ERRNO, "")     \

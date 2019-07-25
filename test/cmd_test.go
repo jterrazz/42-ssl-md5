@@ -13,7 +13,7 @@ func TestSubjectCommands(t *testing.T) {
 		isFailure bool
 	}{
 		{"../ft_ssl", "usage: ft_ssl command [command opts] [command args]\n", true},
-		{"../ft_ssl foobar", "ft_ssl: Error: 'foobar' is an invalid command.\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha256\n\nCipher commands:\n", true},
+		{"../ft_ssl foobar", "ft_ssl: Error: 'foobar' is an invalid command.\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha224\nsha256\nsha384\nsha512\n\nCipher commands:\n", true},
 		{"echo \"pickle rick\" | ../ft_ssl md5", "c5e433c1dbd7ba01e3763a9483e74b04\n", false},
 		{"cd .. && echo \"Do not pity the dead, Harry.\" | ./ft_ssl md5 -p", "Do not pity the dead, Harry.\n2d95365bc44bf0a298e09a3ab7b34d2f\n", false},
 		{"echo \"Pity the living.\" | ../ft_ssl md5 -q -r", "e20c3b973f63482a778f3fd1869b7f25\n", false},

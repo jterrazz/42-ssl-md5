@@ -6,12 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:11:58 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:41:21 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/25 18:40:58 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 #define UTILS_H
+
+// 2 more bonus and puts bonus in little tests
 
 #define DEC(x) (x - 1)
 
