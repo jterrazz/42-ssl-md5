@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/26 00:54:28 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:55:46 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,17 @@ char*ft_sha384(const char *msg, size_t msg_len)
     char *hash;
     char *cropped_hash;
 
-    if (!(formatted_msg =
-              build_msg(msg, msg_len,
-                  SHA512_CHUNK_COUNT(msg_len) * SHA512_CHUNK_SIZE, FALSE)))
+    if (!(formatted_msg = build_msg(msg, msg_len,
+        SHA512_CHUNK_COUNT(msg_len) * SHA512_CHUNK_SIZE, FALSE)))
         return (NULL);
-
     ft_uint64_arr_cpy(buffers, g_sha384_default_buffers, 8);
     sha512_run_ops(buffers, formatted_msg, msg_len);
     free(formatted_msg);
-
     if (!(hash = build_hash_64(buffers, 8, FALSE)))
         return NULL;
-    // Replace macro 384 / 8
     if (!(cropped_hash = ft_strnew(BYTE_TO_B(384) * 2)))
         return (NULL);
     ft_strncpy(cropped_hash, hash, BYTE_TO_B(384) * 2);
     free(hash);
-    return (cropped_hash); // replace 16 and 8 by MACROS
+    return (cropped_hash);
 }
