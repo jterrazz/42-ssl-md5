@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/26 00:28:55 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/26 00:41:37 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@
 */
 
 extern const uint32_t	g_sha1_default_buffers[5];
-extern const uint32_t g_sha1_k_buffers[4];
+extern const uint32_t	g_sha1_k_buffers[4];
 
 /*
-** Prototypes
+** Methods
 */
 
 char *ft_sha1(const char *msg, size_t msg_len);
+
+uint32_t ft_sha1_ch(uint32_t x, uint32_t y, uint32_t z);
+uint32_t ft_sha1_par(uint32_t x, uint32_t y, uint32_t z);
+uint32_t ft_sha1_ma(uint32_t x, uint32_t y, uint32_t z);
 
 #endif

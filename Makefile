@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/07/26 00:36:12 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/07/26 00:42:17 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SOURCES += ft_sha256/constants.c ft_sha256/ops_bits.c ft_sha256/ops_rotation.c \
 SOURCES += ft_sha512/constants.c ft_sha512/ops_rotation.c ft_sha512/sha512.c ft_sha512/ops_bits.c
 SOURCES += ft_sha384/sha384.c ft_sha384/constants.c
 SOURCES += ft_sha224/sha224.c ft_sha224/constants.c
-SOURCES += ft_sha1/sha1.c ft_sha1/constants.c
+SOURCES += ft_sha1/sha1.c ft_sha1/constants.c ft_sha1/ops.c
 SOURCES += shared/ft_uint_helpers.c shared/build_hash.c shared/ft_bswap.c \
 	shared/build_msg.c shared/ft_brotate.c shared/ft_uitoa_base.c
 
