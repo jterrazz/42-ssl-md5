@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:25:41 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 12:46:02 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:59:04 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include "../ft_sha256/sha256.h"
 
 # define SHA512_CS 128
-# define SHA512_CS(len) ((len + 1 + 8 + DEC(SHA512_CS)) & ~DEC(SHA512_CS))
-# define SHA512_CHUNK_COUNT(len) (SHA512_CS(len) / SHA512_CS)
+# define SHA512_TS(len) ((len + 1 + 8 + DEC(SHA512_CS)) & ~DEC(SHA512_CS))
+# define SHA512_CHUNK_COUNT(len) (SHA512_TS(len) / SHA512_CS)
 
 /*
 ** Globals

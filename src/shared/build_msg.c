@@ -13,7 +13,7 @@
 #include "./shared.h"
 
 unsigned char	*build_msg(const char *msg, size_t msg_len,
-	size_t formatted_msg_len, bool is_little_endian)
+	size_t formatted_msg_len, t_bool is_little_endian)
 {
 	unsigned char	*formatted_msg;
 	size_t			cursor;

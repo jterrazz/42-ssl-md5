@@ -13,7 +13,7 @@
 #include "./shared.h"
 
 char	*build_hash(uint32_t *buffers,
-	size_t buffer_count, bool is_little_endian)
+	size_t buffer_count, t_bool is_little_endian)
 {
 	char		*hash;
 	char		*hash_tmp;
@@ -37,7 +37,7 @@ char	*build_hash(uint32_t *buffers,
 }
 
 char	*build_hash_64(uint64_t *buffers,
-	size_t buffer_count, bool is_little_endian)
+	size_t buffer_count, t_bool is_little_endian)
 {
 	char		*hash;
 	char		*hash_tmp;

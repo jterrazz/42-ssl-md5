@@ -6,48 +6,56 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:27:48 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:27:03 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 13:52:04 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./shared.h"
 
-void ft_uint32_arr_assign_add(uint32_t *dst, const uint32_t *src, size_t len)
+void	ft_uint32_arr_assign_add(uint32_t *dst, const uint32_t *src, size_t len)
 {
-    size_t i = 0;
+	size_t i;
 
-    while (i < len) {
-        dst[i] += src[i];
-        i++;
-    }
+	i = 0;
+	while (i < len)
+	{
+		dst[i] += src[i];
+		i++;
+	}
 }
 
-void ft_uint32_arr_cpy(uint32_t *dst, const uint32_t *src, size_t len)
+void	ft_uint32_arr_cpy(uint32_t *dst, const uint32_t *src, size_t len)
 {
-    size_t i = 0;
+	size_t i;
 
-    while (i < len) {
-        dst[i] = src[i];
-        i++;
-    }
+	i = 0;
+	while (i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
 }
 
-void ft_uint64_arr_assign_add(uint64_t *dst, const uint64_t *src, size_t len)
+void	ft_uint64_arr_assign_add(uint64_t *dst, const uint64_t *src, size_t len)
 {
-    size_t i = 0;
+	size_t i;
 
-    while (i < len) {
-        dst[i] += src[i];
-        i++;
-    }
+	i = 0;
+	while (i < len)
+	{
+		dst[i] += src[i];
+		i++;
+	}
 }
 
-void ft_uint64_arr_cpy(uint64_t *dst, const uint64_t *src, size_t len)
+void	ft_uint64_arr_cpy(uint64_t *dst, const uint64_t *src, size_t len)
 {
-    size_t i = 0;
+	size_t i;
 
-    while (i < len) {
-        dst[i] = src[i];
-        i++;
-    }
+	i = 0;
+	while (i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
 }

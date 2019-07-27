@@ -32,10 +32,10 @@ typedef struct      s_file {
 typedef struct      s_cmd_state {
     char	**input_files;
     int		input_file_count;
-    bool	p;
-    bool	q;
-    bool	r;
-    bool	s;
+    t_bool	p;
+    t_bool	q;
+    t_bool	r;
+    t_bool	s;
     struct s_cmd   *cmd;
     int		argc;
     char	**argv;

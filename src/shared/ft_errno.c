@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 17:41:25 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 12:52:28 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 13:48:40 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,23 @@
 
 t_ssl_error g_ft_ssl_error;
 
-char *g_ssl_errors[] = {
-	FOREACH_ERROR(GENERATE_STRING)
+t_ssl_err_msg g_ssl_errors[] = {
+	{ ERR_NO_ARG, "usage: ft_ssl command [command opts] [command args]" },
+	{ ERR_NULL, "" }
 };
 
 static char	*ft_strerror(t_ssl_error error)
 {
-	return (g_ssl_errors[error]);
+	t_ssl_err_msg *errs;
+
+	errs = g_ssl_errors;
+	while (errs)
+	{
+		if (error == errs->err)
+			return (errs->message);
+		errs += 1;
+	}
+	return (NULL);
 }
 
 int			ft_error(t_ssl_error error)
