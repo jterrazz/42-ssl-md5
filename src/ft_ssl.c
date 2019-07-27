@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 14:07:52 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:22:51 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static int	usage(char **argv)
 {
 	ft_printf("ft_ssl: Error: '%s' is an invalid command.\n\nStandard \
-	commands:\n\nMessage Digest commands:\nmd5\nsha224\nsha256\nsha384\n\
-	sha512\n\nCipher commands:\n", argv[1]);
+commands:\n\nMessage Digest commands:\nmd5\nsha1\nsha224\nsha256\nsha384\n\
+sha512\n\nCipher commands:", argv[1]);
 	return (FAILURE);
 }
 

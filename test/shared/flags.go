@@ -4,10 +4,10 @@ import (
 	"flag"
 )
 
-var FlagM *t_bool
+var FlagM *bool
 
 func InitFlags() {
-	FlagM = flag.t_bool("m", false, "Will test for makefiles")
+	FlagM = flag.Bool("m", false, "Will test for makefiles")
 	flag.Parse()
 }
 
