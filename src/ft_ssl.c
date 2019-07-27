@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 14:22:51 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:31:43 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ sha512\n\nCipher commands:", argv[1]);
 	return (FAILURE);
 }
 
-static int listen_for_input(t_cmd *cmd)
+static int	listen_for_input(t_cmd *cmd)
 {
-    t_file	*file;
-    char	*hash;
+	t_file	*file;
+	char	*hash;
 
-    if (!(file = read_fd_content(0))
-        || !(hash = cmd->handler(file->data, file->length)))
-        return (FAILURE);
-    free_file(file);
-    ft_printf("\n%s\n", hash);
-    free(hash);
-    return (SUCCESS);
+	if (!(file = read_fd_content(0))
+		|| !(hash = cmd->handler(file->data, file->length)))
+		return (FAILURE);
+	free_file(file);
+	ft_printf("\n%s\n", hash);
+	free(hash);
+	return (SUCCESS);
 }
 
 static int	interactive_interface(char **argv)
@@ -48,7 +48,7 @@ static int	interactive_interface(char **argv)
 		while (g_cmds[i].cmd)
 		{
 			if (!ft_strcmp(g_cmds[i].cmd, buffer))
-    			return (listen_for_input(&g_cmds[i]));
+				return (listen_for_input(&g_cmds[i]));
 			i++;
 		}
 		usage(argv);

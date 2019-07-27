@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:25:41 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 12:59:04 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:31:54 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void		sha512_shuffle_buffers(t_8_uint64 buffers,
 void		sha512_run_ops(t_8_uint64 buffers,
 	unsigned char *formatted_msg, size_t msg_len);
 
-
 /*
 ** Operations
 */
@@ -51,6 +50,5 @@ uint64_t	sha512_op_c(uint64_t x);
 uint64_t	sha512_op_d(uint64_t x);
 uint64_t	sha512_op_ch(uint64_t x, uint64_t y, uint64_t z);
 uint64_t	sha512_op_maj(uint64_t x, uint64_t y, uint64_t z);
-
 
 #endif
