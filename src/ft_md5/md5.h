@@ -6,18 +6,18 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 17:57:46 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:16:05 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:30:57 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MD5_H
-#define MD5_H
+# define MD5_H
 
-#include "../shared/shared.h"
+# include "../shared/shared.h"
 
-#define MD5_CHUNK_SIZE 64
-#define MD5_CHUNKS_SIZE(len) ((len + 1 + 8 + DEC(MD5_CHUNK_SIZE)) & ~DEC(MD5_CHUNK_SIZE))
-#define MD5_CHUNK_COUNT(len) (MD5_CHUNKS_SIZE(len) / MD5_CHUNK_SIZE)
+# define MD5_CHUNK_SIZE 64
+# define MD5_S(len) ((len + 1 + 8 + DEC(MD5_CHUNK_SIZE)) & ~DEC(MD5_CHUNK_SIZE))
+# define MD5_CHUNK_COUNT(len) (MD5_S(len) / MD5_CHUNK_SIZE)
 
 /*
 ** Globals
@@ -31,7 +31,7 @@ extern const t_4_uint32 g_md5_default_buffers;
 ** Prototypes
 */
 
-char*ft_md5(const char *msg, size_t msg_len);
+char		*ft_md5(const char *msg, size_t msg_len);
 
 /*
 ** Operations
