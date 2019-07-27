@@ -6,13 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 15:25:26 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/25 20:51:41 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:18:14 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./cmd.h"
 
-static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
+static int	cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 {
 	t_flag	*flag_obj;
 	int		args_to_skip;
@@ -22,7 +22,7 @@ static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 	i = 1;
 	args_to_skip = 0;
 	while (state->argv[argc_i][i])
-    {
+	{
 		if (!(flag_obj = cmd_get_flag_obj(state, state->argv[argc_i][i])))
 			return (FAILURE);
 		if (flag_obj->handler)
@@ -38,7 +38,7 @@ static int cmd_arg_is_flag(t_cmd_state *state, int argc_i)
 	return (args_to_skip);
 }
 
-static int cmd_analyse_arg(t_cmd_state *state, int argc_i)
+static int	cmd_analyse_arg(t_cmd_state *state, int argc_i)
 {
 	if (!state->input_file_count && (state->argv[argc_i][0] == '-') &&
 		state->argv[argc_i][1])
@@ -49,7 +49,8 @@ static int cmd_analyse_arg(t_cmd_state *state, int argc_i)
 	return (SUCCESS);
 }
 
-int cmd_init_state(t_cmd_state *state, int argc, char **argv, t_cmd *cmd)
+int			cmd_init_state(t_cmd_state *state, int argc,
+	char **argv, t_cmd *cmd)
 {
 	int ret;
 	int argc_i;
