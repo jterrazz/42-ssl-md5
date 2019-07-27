@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 23:31:01 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 12:48:36 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:00:16 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 uint32_t	ft_bswap_uint32(uint32_t x)
 {
-    x = ((x << 8) & 0xFF00FF00 ) | ((x >> 8) & 0xFF00FF );
-    return (x << 16) | (x >> 16);
+	x = ((x << 8) & 0xFF00FF00) | ((x >> 8) & 0xFF00FF);
+	return (x << 16) | (x >> 16);
 }
 
 uint64_t	ft_bswap_uint64(uint64_t x)
 {
-    x = ((x << 8) & 0xFF00FF00FF00FF00ULL ) | ((x >> 8) & 0x00FF00FF00FF00FFULL );
-    x = ((x << 16) & 0xFFFF0000FFFF0000ULL ) | ((x >> 16) & 0x0000FFFF0000FFFFULL );
-    return (x << 32) | (x >> 32);
+	x = ((x << 8) & 0xFF00FF00FF00FF00ULL)
+		| ((x >> 8) & 0x00FF00FF00FF00FFULL);
+	x = ((x << 16) & 0xFFFF0000FFFF0000ULL)
+		| ((x >> 16) & 0x0000FFFF0000FFFFULL);
+	return (x << 32) | (x >> 32);
 }

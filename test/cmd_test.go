@@ -10,7 +10,7 @@ func TestSubjectCommands(t *testing.T) {
 	t.Parallel()
 	for i, test := range []struct {
 		cmd, expected string
-		isFailure bool
+		isFailure t_bool
 	}{
 		{"../ft_ssl", "usage: ft_ssl command [command opts] [command args]\n", true},
 		{"../ft_ssl foobar", "ft_ssl: Error: 'foobar' is an invalid command.\n\nStandard commands:\n\nMessage Digest commands:\nmd5\nsha224\nsha256\nsha384\nsha512\n\nCipher commands:\n", true},

@@ -6,13 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:15:09 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 12:44:53 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 13:59:32 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha512.h"
 
-void sha512_init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
+void	sha512_init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
 {
 	int i;
 
@@ -30,7 +30,7 @@ void sha512_init_w_array(t_80_uint64 w_array, unsigned char *formatted_msg)
 	}
 }
 
-void sha512_shuffle_buffers(t_8_uint64 buffers, t_80_uint64 w_array)
+void	sha512_shuffle_buffers(t_8_uint64 buffers, t_80_uint64 w_array)
 {
 	int			i;
 	uint64_t	temp_a;
@@ -38,7 +38,7 @@ void sha512_shuffle_buffers(t_8_uint64 buffers, t_80_uint64 w_array)
 
 	i = 0;
 	while (i < 80)
-    {
+	{
 		temp_a = buffers[7] + sha512_op_b(buffers[4]) + sha512_op_ch(buffers[4],
 			buffers[5], buffers[6]) + g_sha512_k[i] + w_array[i];
 		temp_b = sha512_op_a(buffers[0]) + sha512_op_maj(buffers[0],
@@ -55,8 +55,8 @@ void sha512_shuffle_buffers(t_8_uint64 buffers, t_80_uint64 w_array)
 	}
 }
 
-void sha512_run_ops(t_8_uint64 buffers,
-    unsigned char *formatted_msg, size_t msg_len)
+void	sha512_run_ops(t_8_uint64 buffers,
+	unsigned char *formatted_msg, size_t msg_len)
 {
 	size_t			chunk_i;
 	t_80_uint64		w_array;
@@ -64,7 +64,7 @@ void sha512_run_ops(t_8_uint64 buffers,
 
 	chunk_i = 0;
 	while (chunk_i < SHA512_CHUNK_COUNT(msg_len))
-    {
+	{
 		sha512_init_w_array(w_array, formatted_msg + chunk_i * SHA512_CS);
 		ft_uint64_arr_cpy(internal_buffers, buffers, 8);
 		sha512_shuffle_buffers(internal_buffers, w_array);
@@ -73,13 +73,13 @@ void sha512_run_ops(t_8_uint64 buffers,
 	}
 }
 
-char*ft_sha512(const char *msg, size_t msg_len)
+char	*ft_sha512(const char *msg, size_t msg_len)
 {
 	unsigned char	*formatted_msg;
 	t_8_uint64		buffers;
 
 	if (!(formatted_msg = build_msg(msg, msg_len,
-				  SHA512_CHUNK_COUNT(msg_len) * SHA512_CS, FALSE)))
+		SHA512_CHUNK_COUNT(msg_len) * SHA512_CS, FALSE)))
 		return (NULL);
 	ft_uint64_arr_cpy(buffers, g_sha512_default_buffers, 8);
 	sha512_run_ops(buffers, formatted_msg, msg_len);

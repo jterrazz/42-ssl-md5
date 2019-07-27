@@ -6,7 +6,7 @@
 #    By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/23 18:00:29 by jterrazz          #+#    #+#              #
-#    Updated: 2019/07/26 00:42:17 by jterrazz         ###   ########.fr        #
+#    Updated: 2019/07/27 14:09:52 by jterrazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,8 @@ $(NAME): $(OBJECTS)
 	@echo "Make ft_printf \033[33mok\033[0m"
 	@make -s -C $(LIB_PATH)/libft
 	@echo "Make libft \033[33mok\033[0m"
-	$(CC) $(FLAGS_CC) -o $@ $^ $(LIB_SOURCES)
-	@echo "Compilation successful"
+	@$(CC) $(FLAGS_CC) -o $@ $^ $(LIB_SOURCES)
+	@echo "./ft_ssl created"
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir -p $(@D)
