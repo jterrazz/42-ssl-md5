@@ -20,7 +20,7 @@ char	*ft_sha224(const char *msg, size_t msg_len)
 	char			*cropped_hash;
 
 	if (!(formatted_msg = build_msg(msg, msg_len,
-		SHA256_CHUNK_COUNT(msg_len) * SHA256_CHUNK_SIZE, FALSE)))
+		SHA256_CHUNK_COUNT(msg_len) * SHA256_C_SIZE, FALSE)))
 		return (NULL);
 	ft_uint32_arr_cpy(buffers, g_sha224_default_buffers, 8);
 	sha256_run_ops(buffers, formatted_msg, msg_len);

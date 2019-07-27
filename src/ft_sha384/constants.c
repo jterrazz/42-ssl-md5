@@ -6,13 +6,13 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:24:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:25:52 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:42:12 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha384.h"
 
-const uint64_t g_sha384_default_buffers[8] = {
+const uint64_t	g_sha384_default_buffers[8] = {
 	0xCBBB9D5DC1059ED8,
 	0x629A292A367CD507,
 	0x9159015A3070DD17,

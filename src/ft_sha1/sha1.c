@@ -67,7 +67,7 @@ static void		sha1_run_ops(t_8_uint32 buffers,
 	chunk_i = 0;
 	while (chunk_i < SHA256_CHUNK_COUNT(msg_len))
 	{
-		init_w_array(w_array, formatted_msg + chunk_i * SHA256_CHUNK_SIZE);
+		init_w_array(w_array, formatted_msg + chunk_i * SHA256_C_SIZE);
 		ft_uint32_arr_cpy(internal_buffers, buffers, 5);
 		sha1_shuffle_buffers(internal_buffers, w_array);
 		ft_uint32_arr_assign_add(buffers, internal_buffers, 5);
@@ -82,7 +82,7 @@ char			*ft_sha1(const char *msg, size_t msg_len)
 	char			*hash;
 
 	if (!(formatted_msg = build_msg(msg, msg_len, SHA256_CHUNK_COUNT(msg_len)
-		* SHA256_CHUNK_SIZE, FALSE)))
+		* SHA256_C_SIZE, FALSE)))
 		return (NULL);
 	ft_uint32_arr_cpy(buffers, g_sha1_default_buffers, 5);
 	sha1_run_ops(buffers, formatted_msg, msg_len);

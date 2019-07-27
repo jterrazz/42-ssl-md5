@@ -6,13 +6,11 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:29:05 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:26:16 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:43:01 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha512.h"
-
-// Replace all Fixed length with a Macro ?
 
 const uint64_t g_sha512_k[80] = {
 	0x428a2f98d728ae22, 0x7137449123ef65cd, 0xb5c0fbcfec4d3b2f, 0xe9b5dba58189dbbc, 0x3956c25bf348b538,
