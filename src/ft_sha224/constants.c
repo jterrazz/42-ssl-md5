@@ -6,14 +6,14 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 11:24:07 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/21 21:24:53 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:35:11 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sha224.h"
 
-const uint32_t g_sha224_default_buffers[8] = {
-    0xC1059ED8,
+const uint32_t	g_sha224_default_buffers[8] = {
+	0xC1059ED8,
 	0x367CD507,
 	0x3070DD17,
 	0xF70E5939,
