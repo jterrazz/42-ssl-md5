@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/27 14:31:43 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:44:13 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static int	interactive_interface(char **argv)
 	{
 		i = 0;
 		ft_printf("<./ft_ssl> ");
-		fgets(buffer, 49, stdin);
+		if (!fgets(buffer, 49, stdin))
+			return (FAILURE);
 		buffer[ft_strlen(buffer) - 1] = 0;
 		while (g_cmds[i].cmd)
 		{
