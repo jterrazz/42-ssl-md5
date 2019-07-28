@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/28 14:09:49 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/07/28 14:14:40 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	usage(char **argv)
 {
 	ft_printf("ft_ssl: Error: '%s' is an invalid command.\n\nStandard \
 commands:\n\nMessage Digest commands:\nmd5\nsha1\nsha224\nsha256\nsha384\n\
-sha512\n\nCipher commands:", argv[1]);
+sha512\n\nCipher commands:\n", argv[1]);
 	return (FAILURE);
 }
 
@@ -44,7 +44,7 @@ static int	interactive_interface(char **argv)
 	{
 		i = 0;
 		ft_printf("<./ft_ssl> ");
-		if ((ret = get_next_line(0, &line)) == 0)
+		if ((ret = get_next_line(0, &line)) > 0)
 		{
 			while (g_cmds[i].cmd)
 			{
