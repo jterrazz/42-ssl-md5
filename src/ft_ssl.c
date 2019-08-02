@@ -6,7 +6,7 @@
 /*   By: jterrazz <jterrazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:06:42 by jterrazz          #+#    #+#             */
-/*   Updated: 2019/07/28 14:29:41 by jterrazz         ###   ########.fr       */
+/*   Updated: 2019/08/02 14:05:51 by jterrazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ static int	interactive_interface(char **argv)
 			usage(argv);
 			ft_printf("\n");
 			free(line);
-		} else if (ret < 0)
+		}
+		else if (ret < 0)
 			return (FAILURE);
 	}
 }
