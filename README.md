@@ -8,7 +8,7 @@ Creates an executable `ft_ssl`.
 
 ## How does it work ?
 
-[Please refer to the medium article of this projet here.](https://medium.com/a-42-journey/implementing-the-sha256-and-md5-hash-functions-in-c-78c17e657794?postPublishedType=initial)
+[Please refer to the medium article of this projet here.](https://www.jterrazz.com/articles/2-sha-256-md5-in-c-complete-hashing-guide)
 
 ## Commands
 
